@@ -1,4 +1,18 @@
 # WECCC-API-Server
+
 Server-side API Implementation for WECCC Reporting Tool
 
-Initial code based on: https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+## Installation
+
+The following need to be installed:
+
+- [MongoDB](https://docs.mongodb.com/manual/installation/#tutorials)
+- [NodeJS](https://nodejs.org/en/)
+
+## Initialization
+
+```Shell
+npm install
+```
+
+Installs all required node modules

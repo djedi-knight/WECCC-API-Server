@@ -4,7 +4,7 @@
   "description": "Server-side API Implementation for WECCC Reporting Tool",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/djedi-knight/WECCC-API-Server/issues"
   },
-  "homepage": "https://github.com/djedi-knight/WECCC-API-Server#readme"
+  "homepage": "https://github.com/djedi-knight/WECCC-API-Server#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^4.5.9"
+  }
 }

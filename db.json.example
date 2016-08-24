@@ -1,0 +1,16 @@
+// Copy the contents of this file to a new file called 'db.json'
+
+{
+  "username": "username",
+  "password": "password",
+  "hosts": [
+    {
+      "host": "host",
+      "port": 1234
+    }
+  ],
+  "database": "database",
+  "options": {
+    "authSource": "admin"
+  }
+}
