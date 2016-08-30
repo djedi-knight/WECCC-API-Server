@@ -61,9 +61,20 @@ router.route('/tests')
 
     // save the test and check for errors
     test.save(function(err) {
-      if (err) res.send(err);
+      if (err)
+        res.send(err);
 
       res.json({ message: 'Test created!' });
+    });
+  })
+
+  // get all the tests (accessed at GET http://localhost:8090/api/tests)
+  .get(function(req, res) {
+    Test.find(function(err, tests) {
+      if (err)
+        res.send(err);
+
+      res.json(tests);
     });
   });
 
