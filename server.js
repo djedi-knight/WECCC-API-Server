@@ -53,7 +53,6 @@ router.route('/tests')
   // create a test
   // (accessed at POST http://localhost:8090/api/tests)
   .post(function(req, res) {
-
     // create a new instance of the Test model
     var test = new Test();
 
@@ -92,6 +91,27 @@ router.route('/tests/:test_id')
         res.send(err);
 
       res.json(test);
+    });
+  })
+
+  // update the test with this id
+  // (accessed at PUT http://localhost:8090/api/tests/:test_id)
+  .put(function(req, res) {
+    // use our test model to find the test we want
+    Test.findById(req.params.test_id, function(err, test) {
+      if (err)
+        res.send(err);
+
+      // update the test info
+      test.name = req.body.name;
+
+      // save the test
+      test.save(function(err) {
+        if (err)
+          res.send(err);
+
+        res.json({ message: 'Test updated!' });
+      });
     });
   });
 
