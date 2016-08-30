@@ -50,7 +50,8 @@ router.get('/', function(req, res) {
 // ----------------------------------------------------
 router.route('/tests')
 
-  // create a test (accessed at POST http://localhost:8090/api/tests)
+  // create a test
+  // (accessed at POST http://localhost:8090/api/tests)
   .post(function(req, res) {
 
     // create a new instance of the Test model
@@ -68,13 +69,29 @@ router.route('/tests')
     });
   })
 
-  // get all the tests (accessed at GET http://localhost:8090/api/tests)
+  // get all the tests
+  // (accessed at GET http://localhost:8090/api/tests)
   .get(function(req, res) {
     Test.find(function(err, tests) {
       if (err)
         res.send(err);
 
       res.json(tests);
+    });
+  });
+
+// Routes for /tests/:test_id
+// ----------------------------------------------------
+router.route('/tests/:test_id')
+
+  // get the test with that id
+  // (accessed at GET http://localhost:8080/api/tests/:test_id)
+  .get(function(req, res) {
+    Test.findById(req.params.test_id, function(err, test) {
+      if (err)
+        res.send(err);
+
+      res.json(test);
     });
   });
 
