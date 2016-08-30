@@ -33,20 +33,39 @@ var router = express.Router();
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
-    // do logging
-    console.log('Something is happening.');
+  // do logging
+  console.log('Something is happening.');
 
-    // make sure we go to the next routes and don't stop here
-    next();
+  // make sure we go to the next routes and don't stop here
+  next();
 });
 
 // test route to make sure everything is working
-// (accessed at GET http://localhost:8080/api)
+// (accessed at GET http://localhost:8090/api)
 router.get('/', function(req, res) {
   res.json({ message: 'Hooray! Welcome to our API!' });
 });
 
-// more routes for our API will happen here
+// Routes for /tests
+// ----------------------------------------------------
+router.route('/tests')
+
+  // create a test (accessed at POST http://localhost:8090/api/tests)
+  .post(function(req, res) {
+
+    // create a new instance of the Test model
+    var test = new Test();
+
+    // set the tests name (comes from the request)
+    test.name = req.body.name;
+
+    // save the test and check for errors
+    test.save(function(err) {
+      if (err) res.send(err);
+
+      res.json({ message: 'Test created!' });
+    });
+  });
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
