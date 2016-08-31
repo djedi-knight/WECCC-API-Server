@@ -24,6 +24,9 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// configure app to use morgan() to log information
+app.use(morgan('combined'));
+
 // set our port
 var port = process.env.PORT || 8090;
 
@@ -33,7 +36,13 @@ var port = process.env.PORT || 8090;
 var router = express.Router();
 
 // middleware to use for all requests
-router.use(morgan('combined'));
+router.use(function(req, res, next) {
+  console.log('In the custom middleware!');
+
+  // make sure we go to the next routes and don't stop here
+  next();
+});
+
 
 // test route to make sure everything is working
 // (accessed at GET http://localhost:8090/api)
