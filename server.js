@@ -4,6 +4,7 @@
 // call the packages/ data we need
 var express     = require('express');
 var bodyParser  = require('body-parser');
+var morgan      = require('morgan')
 var mongoose    = require('mongoose');
 var mongodbUri  = require('mongodb-uri');
 var db          = require('./db.json');
@@ -32,13 +33,7 @@ var port = process.env.PORT || 8090;
 var router = express.Router();
 
 // middleware to use for all requests
-router.use(function(req, res, next) {
-  // do logging
-  console.log('Something is happening.');
-
-  // make sure we go to the next routes and don't stop here
-  next();
-});
+router.use(morgan('combined'));
 
 // test route to make sure everything is working
 // (accessed at GET http://localhost:8090/api)
