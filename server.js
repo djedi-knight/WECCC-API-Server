@@ -113,6 +113,19 @@ router.route('/tests/:test_id')
         res.json({ message: 'Test updated!' });
       });
     });
+  })
+
+  // delete the test with this id
+  // (accessed at DELETE http://localhost:8090/api/tests/:test_id)
+  .delete(function(req, res) {
+    Test.remove({
+      _id: req.params.test_id
+    }, function(err, test) {
+      if (err)
+        res.send(err);
+
+      res.json({ message: 'Successfully deleted' });
+    });
   });
 
 // REGISTER OUR ROUTES -------------------------------
