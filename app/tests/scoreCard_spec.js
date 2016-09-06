@@ -1,8 +1,13 @@
+/* global require   */
+/* global describe  */
+/* global it        */
+
+
 var sinon = require('sinon');
 var chai = require('chai');
 var expect = chai.expect;
 
-var mongoose = require('mongoose');
+require('mongoose');
 require('sinon-mongoose');
 
 var ScoreCard = require('../models/scoreCard');
@@ -26,7 +31,7 @@ describe("Get all scoreCards", function() {
     var expectedResult = {status: false, error: "Something went wrong"};
     ScoreCardMock.expects('find').yields(expectedResult, null);
 
-    ScoreCard.find(function (err, result) {
+    ScoreCard.find(function (err) {
       ScoreCardMock.verify();
       ScoreCardMock.restore();
       expect(err.status).to.not.be.true;
@@ -56,7 +61,7 @@ describe("Create a new scoreCard", function() {
     var expectedResult = { status: false };
     ScoreCardMock.expects('save').yields(expectedResult, null);
 
-    scoreCard.save(function (err, result) {
+    scoreCard.save(function (err) {
       ScoreCardMock.verify();
       ScoreCardMock.restore();
       expect(err.status).to.not.be.true;
@@ -86,7 +91,7 @@ describe("Update a scoreCard by id", function() {
     var expectedResult = { status: false };
     ScoreCardMock.expects('save').withArgs({_id: 12345}).yields(expectedResult, null);
 
-    scoreCard.save({_id: 12345}, function (err, result) {
+    scoreCard.save({_id: 12345}, function (err) {
       ScoreCardMock.verify();
       ScoreCardMock.restore();
       expect(err.status).to.not.be.true;
@@ -114,7 +119,7 @@ describe("Delete a scoreCard by id", function(){
     var expectedResult = { status: false };
     ScoreCardMock.expects('remove').withArgs({_id: 12345}).yields(expectedResult, null);
 
-    ScoreCard.remove({_id: 12345}, function (err, result) {
+    ScoreCard.remove({_id: 12345}, function (err) {
       ScoreCardMock.verify();
       ScoreCardMock.restore();
       expect(err.status).to.not.be.true;

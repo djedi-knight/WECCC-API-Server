@@ -1,5 +1,8 @@
-var express = require('express');
-var router  = express.Router();
+/* global require */
+/* global module  */
+
+var express     = require('express');
+var router      = express.Router();
 
 // MODEL SETUP
 // =============================================================================
@@ -62,9 +65,9 @@ router.route('/:scoreCard_id')
       if (err)
         res.send(err);
 
-        // update the ScoreCard properties
-        scoreCard.title = req.body.title;
-        scoreCard.score = req.body.score;
+      // update the ScoreCard properties
+      scoreCard.title = req.body.title;
+      scoreCard.score = req.body.score;
 
       // save the ScoreCard
       scoreCard.save(function(err) {
@@ -81,7 +84,7 @@ router.route('/:scoreCard_id')
   .delete(function(req, res) {
     ScoreCard.remove({
       _id: req.params.scoreCard_id
-    }, function(err, scoreCard) {
+    }, function(err) {
       if (err)
         res.send(err);
 
