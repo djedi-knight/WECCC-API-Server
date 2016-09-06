@@ -3,73 +3,75 @@ var router  = express.Router();
 
 // MODEL SETUP
 // =============================================================================
-var Test    = require('../models/test');
+var ScoreCard    = require('../models/scoreCard');
 
-// ROUTES: /tests
+// ROUTES: /scoreCards
 // =============================================================================
 router.route('/')
 
 // POST
 // -----------------------------------------------------------------------------
   .post(function(req, res) {
-    // create a new instance of the Test model
-    var test = new Test();
+    // create a new instance of the ScoreCard model
+    var scoreCard = new ScoreCard();
 
-    // set the Test properties
-    test.name = req.body.name;
+    // set the ScoreCard properties
+    scoreCard.title = req.body.title;
+    scoreCard.score = req.body.score;
 
-    // save the Test and check for errors
-    test.save(function(err) {
+    // save the ScoreCard and check for errors
+    scoreCard.save(function(err) {
       if (err)
         res.send(err);
 
-      res.json({ message: 'Test created!' });
+      res.json({ message: 'ScoreCard created!' });
     });
   })
 
 // GET
 // -----------------------------------------------------------------------------
   .get(function(req, res) {
-    Test.find(function(err, tests) {
+    ScoreCard.find(function(err, scoreCards) {
       if (err)
         res.send(err);
 
-      res.json(tests);
+      res.json(scoreCards);
     });
   });
 
-// ROUTES: /tests/:test_id
+// ROUTES: /scoreCards/:scoreCard_id
 // =============================================================================
-router.route('/:test_id')
+router.route('/:scoreCard_id')
 
 // GET
 // -----------------------------------------------------------------------------
   .get(function(req, res) {
-    Test.findById(req.params.test_id, function(err, test) {
+    ScoreCard.findById(req.params.scoreCard_id, function(err, scoreCard) {
       if (err)
         res.send(err);
 
-      res.json(test);
+      res.json(scoreCard);
     });
   })
 
 // PUT
 // -----------------------------------------------------------------------------
   .put(function(req, res) {
-    // use our Test model to find the Test we want
-    Test.findById(req.params.test_id, function(err, test) {
+    // use our ScoreCard model to find the test we want
+    ScoreCard.findById(req.params.scoreCard_id, function(err, scoreCard) {
       if (err)
         res.send(err);
 
-      // update the Test properties
-      test.name = req.body.name;
+        // update the ScoreCard properties
+        scoreCard.title = req.body.title;
+        scoreCard.score = req.body.score;
 
-      // save the Test
-      test.save(function(err) {
+      // save the ScoreCard
+      scoreCard.save(function(err) {
         if (err)
           res.send(err);
 
-        res.json({ message: 'Test updated!' });
+        res.json({ message: 'ScoreCard updated!' });
       });
     });
   })
@@ -77,13 +79,13 @@ router.route('/:test_id')
 // DELETE
 // -----------------------------------------------------------------------------
   .delete(function(req, res) {
-    Test.remove({
-      _id: req.params.test_id
-    }, function(err, test) {
+    ScoreCard.remove({
+      _id: req.params.scoreCard_id
+    }, function(err, scoreCard) {
       if (err)
         res.send(err);
 
-      res.json({ message: 'Test successfully deleted' });
+      res.json({ message: 'ScoreCard successfully deleted' });
     });
   });
 

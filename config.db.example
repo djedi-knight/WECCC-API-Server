@@ -1,4 +1,4 @@
-// Copy the contents of this file to a new file called 'db.json'
+// Copy the contents of this file to a new file called 'config.db'
 
 {
   "username": "username",

@@ -11,6 +11,7 @@ var db          = require('./db.json');
 
 var index       = require('./app/routes/index');
 var tests       = require('./app/routes/tests');
+var scoreCards  = require('./app/routes/scoreCards');
 
 // Use native Node promises for Mongoose
 mongoose.Promise = global.Promise;
@@ -38,6 +39,7 @@ var port = process.env.PORT || 8090;
 // all of our routes will be prefixed with /api
 app.use('/api', index);
 app.use('/api/tests', tests);
+app.use('/api/scoreCards', scoreCards);
 
 // START THE SERVER
 // =============================================================================
