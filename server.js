@@ -10,7 +10,7 @@ var bodyParser  = require('body-parser');
 var logger      = require('morgan');
 var mongoose    = require('mongoose');
 var mongodbUri  = require('mongodb-uri');
-var db          = require('./db.json');
+var db          = require('./config.json');
 
 var index       = require('./app/routes/index');
 var scoreCards  = require('./app/routes/scoreCards');

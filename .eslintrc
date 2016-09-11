@@ -51,7 +51,6 @@
     "func-style": "error",
     "generator-star-spacing": "error",
     "global-require": "error",
-    "guard-for-in": "error",
     "handle-callback-err": "off",
     "id-blacklist": "error",
     "id-length": "error",
@@ -197,10 +196,6 @@
     "semi": "error",
     "semi-spacing": "error",
     "sort-imports": "error",
-    "sort-keys": [
-      "error",
-      "desc"
-    ],
     "sort-vars": "error",
     "space-before-blocks": "off",
     "space-before-function-paren": "off",

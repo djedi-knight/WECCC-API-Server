@@ -11,9 +11,9 @@
 var chai = require('chai');
 var expect = chai.expect;
 var mongoose = require('mongoose');
-var ScoreCard = require('../models/scoreCard').model;
+var Page = require('../models/page');
 
-describe("ScoreCard", function() {
+describe("Page", function() {
   before(function(done) {
     var clearDB = function() {
       for (var item in mongoose.connection.collections) {
@@ -48,48 +48,61 @@ describe("ScoreCard", function() {
   });
 
   beforeEach(function(done) {
-    var scoreCard = new ScoreCard({
+    var page = new Page({
       key: 'first',
-      title: 'First ScoreCard',
-      score: '8/10'
+      title: 'First Page',
+      scoreCards: [
+        {
+          key: 'first',
+          title: 'First ScoreCard',
+          score: '8/10'
+        }
+      ]
     });
-    scoreCard.save(function() {
+
+    page.save(function() {
       done();
     });
   });
 
   afterEach(function(done) {
-    ScoreCard.remove({}, function() {
+    Page.remove({}, function() {
       done();
     });
   });
 
-  it("should successfully create a new scoreCard", function(done) {
-    var scoreCard = new ScoreCard({
+  it("should successfully create a new page", function(done) {
+    var page = new Page({
       key: 'second',
-      title: 'Second ScoreCard',
-      score: '8/10'
+      title: 'Second Page',
+      scoreCards: [
+        {
+          key: 'second',
+          title: 'Second ScoreCard',
+          score: '8/10'
+        }
+      ]
     });
-    scoreCard.save().then(function() {
-      ScoreCard.find(function (err, result) {
+    page.save().then(function() {
+      Page.find(function (err, result) {
         expect(result).to.be.length(2);
       });
       done();
     });
   });
 
-  it("should successfully return all scoreCards", function(done) {
-    ScoreCard.find(function (err, result) {
+  it("should successfully return all pages", function(done) {
+    Page.find(function (err, result) {
       expect(result).to.be.length(1);
       done();
     });
   });
 
-  it("should successfully update a scoreCard", function(done) {
-    ScoreCard.findOne(function (err, result) {
+  it("should successfully update a page", function(done) {
+    Page.findOne(function (err, result) {
       result.title = "New Title";
       result.save().then(function() {
-        ScoreCard.find(function (err, result) {
+        Page.find(function (err, result) {
           expect(result[0].title).to.equal("New Title");
         });
         done();
@@ -97,8 +110,8 @@ describe("ScoreCard", function() {
     });
   });
 
-  it("should successfully delete a scoreCard", function(done) {
-    ScoreCard.findOne(function (err, result) {
+  it("should successfully delete a page", function(done) {
+    Page.findOne(function (err, result) {
       result.remove().then(function() {
         expect(result).to.be.empty;
       });

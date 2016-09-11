@@ -2,11 +2,17 @@
 /* global module  */
 
 var mongoose     = require('mongoose');
-var Schema       = mongoose.Schema;
 
-var ScoreCardSchema = new Schema({
-  title: String,
-  score: String
+var ScoreCardSchema = new mongoose.Schema({
+  key: { type: String, required: true, index: { unique: true } },
+  title: { type: String, required: true },
+  score: { type: String, required: true },
+  trend: { type: String, required: false },
+  warning: { type: Boolean, default: false },
+  peerScore: { type: String, required: false }
 });
 
-module.exports = mongoose.model('ScoreCard', ScoreCardSchema);
+module.exports = {
+  schema: ScoreCardSchema,
+  model: mongoose.model('ScoreCard', ScoreCardSchema)
+};

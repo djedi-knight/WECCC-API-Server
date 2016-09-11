@@ -6,7 +6,7 @@ var router      = express.Router();
 
 // MODEL SETUP
 // =============================================================================
-var ScoreCard    = require('../models/scoreCard');
+var ScoreCard    = require('../models/scoreCard').model;
 
 // ROUTES: /scoreCards
 // =============================================================================
@@ -21,6 +21,9 @@ router.route('/')
     // set the ScoreCard properties
     scoreCard.title = req.body.title;
     scoreCard.score = req.body.score;
+    scoreCard.trend = req.body.trend;
+    scoreCard.warning = req.body.warning;
+    scoreCard.peerScore = req.body.peerScore;
 
     // save the ScoreCard and check for errors
     scoreCard.save(function(err) {
@@ -68,6 +71,9 @@ router.route('/:scoreCard_id')
       // update the ScoreCard properties
       scoreCard.title = req.body.title;
       scoreCard.score = req.body.score;
+      scoreCard.trend = req.body.trend;
+      scoreCard.warning = req.body.warning;
+      scoreCard.peerScore = req.body.peerScore;
 
       // save the ScoreCard
       scoreCard.save(function(err) {
