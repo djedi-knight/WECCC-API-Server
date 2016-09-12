@@ -3,10 +3,10 @@
 
 var mongoose  = require('mongoose');
 
-var barChart = require('../models/chart').barChart.schema;
+var barChart  = require('../models/chart').barChart.schema;
 var lineChart = require('../models/chart').lineChart.schema;
-var pieChart = require('../models/chart').pieChart.schema;
-var infoBox = require('../models/infoBox').schema;
+var pieChart  = require('../models/chart').pieChart.schema;
+var infoBox   = require('../models/infoBox').schema;
 var scoreCard = require('../models/scoreCard').schema;
 
 var PageSchema = new mongoose.Schema({

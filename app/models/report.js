@@ -1,10 +1,11 @@
 /* global require */
 /* global module  */
 
-var mongoose     = require('mongoose');
+var mongoose = require('mongoose');
 
 var ReportSchema = new mongoose.Schema({
   key: { type: String, required: true },
+  title: { type: String, required: true },
   data: [{
     title: { type: String },
     goal: { type: String },

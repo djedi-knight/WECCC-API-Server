@@ -1,7 +1,7 @@
 /* global require */
 /* global module  */
 
-var mongoose     = require('mongoose');
+var mongoose = require('mongoose');
 
 var InfoBoxSchema = new mongoose.Schema({
   key: { type: String, required: true },
