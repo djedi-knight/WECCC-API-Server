@@ -50,7 +50,7 @@ describe("ScoreCard", function() {
 
   beforeEach(function(done) {
     var scoreCard = new ScoreCard({
-      key: 'first',
+      key: 'scoreCard1',
       title: 'First ScoreCard',
       score: '8/10'
     });
@@ -67,14 +67,12 @@ describe("ScoreCard", function() {
 
   it("should successfully create a new scoreCard", function(done) {
     var scoreCard = new ScoreCard({
-      key: 'second',
+      key: 'scoreCard2',
       title: 'Second ScoreCard',
       score: '8/10'
     });
-    scoreCard.save().then(function() {
-      ScoreCard.find(function (err, result) {
-        expect(result).to.be.length(2);
-      });
+    scoreCard.save(function(err, _result) {
+      expect(err).to.be.null;
       done();
     });
   });
@@ -89,10 +87,8 @@ describe("ScoreCard", function() {
   it("should successfully update a scoreCard", function(done) {
     ScoreCard.findOne(function (err, result) {
       result.title = "New Title";
-      result.save().then(function() {
-        ScoreCard.find(function (err, result) {
-          expect(result[0].title).to.equal("New Title");
-        });
+      result.save(function(err, _result) {
+        expect(err).to.be.null;
         done();
       });
     });
@@ -100,10 +96,10 @@ describe("ScoreCard", function() {
 
   it("should successfully delete a scoreCard", function(done) {
     ScoreCard.findOne(function (err, result) {
-      result.remove().then(function() {
-        expect(result).to.be.empty;
+      result.remove(function(err, _result) {
+        expect(err).to.be.null;
+        done();
       });
-      done();
     });
   });
 });

@@ -4,7 +4,7 @@
 var mongoose     = require('mongoose');
 
 var ReportSchema = new mongoose.Schema({
-  key: { type: String, required: true, index: { unique: true } },
+  key: { type: String, required: true },
   data: [{
     title: { type: String },
     goal: { type: String },

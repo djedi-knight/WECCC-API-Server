@@ -50,15 +50,13 @@ describe("Page", function() {
 
   beforeEach(function(done) {
     var page = new Page({
-      key: 'first',
+      key: 'page1',
       title: 'First Page',
-      scoreCards: [
-        {
-          key: 'first',
-          title: 'First ScoreCard',
-          score: '8/10'
-        }
-      ]
+      scoreCards: [{
+        key: 'scoreCard1',
+        title: 'First ScoreCard',
+        score: '8/10'
+      }]
     });
 
     page.save(function() {
@@ -74,20 +72,17 @@ describe("Page", function() {
 
   it("should successfully create a new page", function(done) {
     var page = new Page({
-      key: 'second',
+      key: 'page2',
       title: 'Second Page',
-      scoreCards: [
-        {
-          key: 'second',
-          title: 'Second ScoreCard',
-          score: '8/10'
-        }
-      ]
+      scoreCards: [{
+        key: 'scoreCard1',
+        title: 'Second ScoreCard',
+        score: '8/10'
+      }]
     });
-    page.save().then(function() {
-      Page.find(function (err, result) {
-        expect(result).to.be.length(2);
-      });
+
+    page.save(function(err, _result) {
+      expect(err).to.be.null;
       done();
     });
   });
@@ -102,10 +97,8 @@ describe("Page", function() {
   it("should successfully update a page", function(done) {
     Page.findOne(function (err, result) {
       result.title = "New Title";
-      result.save().then(function() {
-        Page.find(function (err, result) {
-          expect(result[0].title).to.equal("New Title");
-        });
+      result.save(function(err, _result) {
+        expect(err).to.be.null;
         done();
       });
     });
@@ -113,10 +106,10 @@ describe("Page", function() {
 
   it("should successfully delete a page", function(done) {
     Page.findOne(function (err, result) {
-      result.remove().then(function() {
-        expect(result).to.be.empty;
+      result.remove(function(err, _result) {
+        expect(err).to.be.null;
+        done();
       });
-      done();
     });
   });
 });

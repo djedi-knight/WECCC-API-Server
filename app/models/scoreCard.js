@@ -4,7 +4,7 @@
 var mongoose     = require('mongoose');
 
 var ScoreCardSchema = new mongoose.Schema({
-  key: { type: String, required: true, index: { unique: true } },
+  key: { type: String, required: true },
   title: { type: String, required: true },
   score: { type: String, required: true },
   trend: { type: String, required: false, enum: ['UP', 'DOWN', 'NONE']},

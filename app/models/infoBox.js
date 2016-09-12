@@ -4,7 +4,7 @@
 var mongoose     = require('mongoose');
 
 var InfoBoxSchema = new mongoose.Schema({
-  key: { type: String, required: true, index: { unique: true } },
+  key: { type: String, required: true },
   title: { type: String, required: true },
   value: { type: String, required: true }
 });

@@ -4,7 +4,7 @@
 var mongoose     = require('mongoose');
 
 var BarChartSchema = new mongoose.Schema({
-  key: { type: String, required: true, index: { unique: true } },
+  key: { type: String, required: true },
   data: [{
     title: { type: String },
     value: { type: Number }
@@ -12,7 +12,7 @@ var BarChartSchema = new mongoose.Schema({
 });
 
 var LineChartSchema = new mongoose.Schema({
-  key: { type: String, required: true, index: { unique: true } },
+  key: { type: String, required: true },
   data: [{
     title: { type: String },
     values: [{
@@ -23,7 +23,7 @@ var LineChartSchema = new mongoose.Schema({
 });
 
 var PieChartSchema = new mongoose.Schema({
-  key: { type: String, required: true, index: { unique: true } },
+  key: { type: String, required: true },
   data: [{
     title: { type: String },
     value: { type: Number }

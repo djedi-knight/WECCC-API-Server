@@ -155,6 +155,12 @@
     "no-unneeded-ternary": "error",
     "no-unsafe-negation": "error",
     "no-unused-expressions": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "no-use-before-define": "error",
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
