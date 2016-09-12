@@ -11,5 +11,5 @@ var InfoBoxSchema = new mongoose.Schema({
 
 module.exports = {
   schema: InfoBoxSchema,
-  model: mongoose.model('InfoBoxS', InfoBoxSchema)
+  model: mongoose.model('InfoBox', InfoBoxSchema)
 };
