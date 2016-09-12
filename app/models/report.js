@@ -10,8 +10,8 @@ var ReportSchema = new mongoose.Schema({
     goal: { type: String },
     baseline: { type: String },
     change: { type: String },
-    trend: { type: String, enum: ['UP', 'DOWN', 'NONE']},
-    colourCode: { type: String, enum: ['GREEN', 'YELLOW', 'RED']}
+    trend: { type: String, enum: ['UP', 'DOWN', 'NONE'] },
+    colourCode: { type: String, enum: ['GREEN', 'YELLOW', 'RED'] }
   }]
 });
 
