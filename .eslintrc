@@ -53,7 +53,6 @@
     "global-require": "error",
     "handle-callback-err": "off",
     "id-blacklist": "error",
-    "id-length": "error",
     "id-match": "error",
     "indent": [2, 2, {"SwitchCase": 1}],
     "init-declarations": "error",

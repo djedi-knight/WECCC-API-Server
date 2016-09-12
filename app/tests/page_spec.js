@@ -11,7 +11,8 @@
 var chai = require('chai');
 var expect = chai.expect;
 var mongoose = require('mongoose');
-var Page = require('../models/page');
+
+var Page = require('../models/page').model;
 
 describe("Page", function() {
   before(function(done) {

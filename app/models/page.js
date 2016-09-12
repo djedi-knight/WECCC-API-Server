@@ -2,6 +2,7 @@
 /* global module  */
 
 var mongoose  = require('mongoose');
+
 var scoreCard = require('../models/scoreCard').schema;
 
 var PageSchema = new mongoose.Schema({
@@ -10,4 +11,7 @@ var PageSchema = new mongoose.Schema({
   scoreCards: [scoreCard]
 });
 
-module.exports = mongoose.model('Page', PageSchema);
+module.exports = {
+  schema: PageSchema,
+  model: mongoose.model('Page', PageSchema)
+};
