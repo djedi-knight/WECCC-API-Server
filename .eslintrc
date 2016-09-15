@@ -83,6 +83,11 @@
     "no-catch-shadow": "error",
     "no-confusing-arrow": "error",
     "no-continue": "error",
+    "no-console": [
+      "error", {
+        "allow": ["log"]
+      }
+    ],
     "no-div-regex": "error",
     "no-duplicate-imports": "error",
     "no-else-return": "error",

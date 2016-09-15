@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:dev": "node server.js",
     "lint": "eslint -c .eslintrc app",
     "test": "mocha \"app/tests/*@(.js)\"",
     "test:watch": "npm run test -- --watch --watch-extensions js"
@@ -29,6 +30,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.4.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "pow-mongoose-fixtures": "^0.3.0"
   }
 }
