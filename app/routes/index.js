@@ -13,6 +13,11 @@ router.use(function(req, res, next) {
 
 // ROUTES: /
 // =============================================================================
+router.get('/*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 router.get('/', function(req, res) {
   res.json({ message: 'Hooray! Welcome to our API!' });
 });
