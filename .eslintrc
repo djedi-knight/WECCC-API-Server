@@ -175,7 +175,7 @@
     "no-useless-rename": "error",
     "no-var": "off",
     "no-void": "error",
-    "no-warning-comments": "error",
+    "no-warning-comments": "off",
     "no-whitespace-before-property": "error",
     "no-with": "error",
     "object-curly-newline": "off",
@@ -186,7 +186,7 @@
         "allowMultiplePropertiesPerLine": true
       }
     ],
-    "object-shorthand": "error",
+    "object-shorthand": "off",
     "one-var": "off",
     "one-var-declaration-per-line": "error",
     "operator-assignment": "error",
@@ -197,7 +197,7 @@
     "prefer-reflect": "error",
     "prefer-rest-params": "error",
     "prefer-spread": "error",
-    "prefer-template": "error",
+    "prefer-template": "off",
     "quote-props": "off",
     "quotes": "off",
     "radix": "error",
