@@ -1,4 +1,7 @@
 /* global exports  */
+/* global require  */
+
+require('../models/scoreCard');
 
 exports.ScoreCard = [{
   key: 'testCard',
