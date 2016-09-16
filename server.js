@@ -16,6 +16,7 @@ var config      = require('./config.json');
 
 var index       = require('./app/routes/index');
 var scoreCards  = require('./app/routes/scoreCards');
+var pages       = require('./app/routes/pages');
 
 // Use native Node promises for Mongoose
 mongoose.Promise = global.Promise;
@@ -54,6 +55,7 @@ var port = 8090;
 console.log('Registering Routes...');
 app.use('/api', index);
 app.use('/api/scoreCards', scoreCards);
+app.use('/api/pages', pages);
 
 // START THE SERVER
 // =============================================================================

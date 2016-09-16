@@ -4,7 +4,7 @@
 require('../models/scoreCard');
 
 exports.ScoreCard = [{
-  key: 'testCard',
+  key: 'testScoreCard',
   title: 'Title',
   score: '8/10'
 }];
