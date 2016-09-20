@@ -25,8 +25,8 @@ var LineChartSchema = new mongoose.Schema({
 var PieChartSchema = new mongoose.Schema({
   key: { type: String, required: true },
   data: [{
-    title: { type: String },
-    value: { type: Number }
+    x: { type: String },
+    y: { type: Number }
   }]
 });
 
