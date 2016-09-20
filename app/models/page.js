@@ -12,7 +12,6 @@ var scoreCard = require('../models/scoreCard').schema;
 var PageSchema = new mongoose.Schema({
   key: { type: String, required: true },
   title: { type: String, required: true },
-  emptyTabContent: { type: String },
   barCharts: [barChart],
   lineCharts: [lineChart],
   pieCharts: [pieChart],

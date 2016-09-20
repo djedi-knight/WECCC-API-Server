@@ -7,7 +7,7 @@ var ReportSchema = new mongoose.Schema({
   key: { type: String, required: true },
   title: { type: String, required: true },
   data: [{
-    title: { type: String },
+    indicator: { type: String },
     goal: { type: String },
     baseline: { type: String },
     change: { type: String },

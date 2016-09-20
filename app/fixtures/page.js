@@ -6,7 +6,6 @@ require('../models/page');
 exports.Page = [{
   key: 'test-page',
   title: 'Page Title',
-  emptyTabContent: 'Empty Tab Content',
   barCharts: [{
     key: 'testPageBarChart',
     data: [{
@@ -51,7 +50,6 @@ exports.Page = [{
 {
   key: 'population-reach-test-page',
   title: 'Population Reach',
-  emptyTabContent: 'Please Select a Tab to Learn More',
   infoBoxes: [{
     key: 'tab-1',
     title: 'Population',
