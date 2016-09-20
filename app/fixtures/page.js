@@ -174,4 +174,43 @@ exports.Page = [{
       trend: 'DOWN'
     }]
   }]
+},
+
+
+{
+  key: 'vital-signs-test-page',
+  title: 'Vital Signs',
+  scoreCards: [{
+    key: 'vital-signs-subgroup',
+    title: 'Vital Signs',
+    list: [{
+      key: 'government',
+      title: 'Government',
+      score: 'B+'
+    }, {
+      key: 'safety',
+      title: 'Safety',
+      score: 'D'
+    }, {
+      key: 'arts-culture',
+      title: 'Arts & Culture',
+      score: 'B'
+    }, {
+      key: 'transportation',
+      title: 'Transportation',
+      score: 'C-'
+    }, {
+      key: 'food-security',
+      title: 'Food Security',
+      score: 'B+'
+    }]
+  }, {
+    key: 'self-reported-subgroup',
+    title: 'Self-Reported',
+    list: []
+  }, {
+    key: 'neighbourhood-subgroup',
+    title: 'Neighbourhoods',
+    list: []
+  }]
 }];
