@@ -1,5 +1,6 @@
 /* global global  */
 /* global require */
+/* global process */
 /* global console */
 
 // BASE SETUP
@@ -12,12 +13,17 @@ var logger      = require('morgan');
 var mongoose    = require('mongoose');
 var mongodbUri  = require('mongodb-uri');
 var fixtures    = require('pow-mongoose-fixtures');
+var minimist    = require('minimist');
+
 var config      = require('./config.json');
 
 var index       = require('./app/routes/index');
 var scoreCards  = require('./app/routes/scoreCards');
 var pages       = require('./app/routes/pages');
 var reports     = require('./app/routes/reports');
+
+// get arguments
+var args = minimist(process.argv.slice(2));
 
 // Use native Node promises for Mongoose
 mongoose.Promise = global.Promise;
@@ -27,14 +33,17 @@ var uri = mongodbUri.format(config);
 console.log('Connecting to Database => ' + uri);
 mongoose.connect(uri);
 
-// initialize our database with fixtures
+// initialize our database with fixtures (only for DEV environment)
 var db = mongoose.connection;
-console.log('Applying Fixtures...');
-fixtures.load('app/fixtures', db, function(err) {
-  if (err) {
-    throw new Error(err);
-  }
-});
+
+if (args.env === 'DEV') {
+  console.log('Applying Fixtures...');
+  fixtures.load('app/fixtures', db, function(err) {
+    if (err) {
+      throw new Error(err);
+    }
+  });
+}
 
 // initialize Express server
 console.log('Initializing Express Server...');
