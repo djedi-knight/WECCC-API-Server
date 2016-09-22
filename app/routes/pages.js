@@ -34,7 +34,13 @@ router.route('/:page_key')
       if (err)
         res.send(err);
 
-      res.json(page);
+      if (page) {
+        res.json(page);
+      } else {
+        res.status(404).send({
+          error: 'No page found for key: ' + req.params.page_key
+        });
+      }
     });
   });
 

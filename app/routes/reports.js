@@ -34,7 +34,13 @@ router.route('/:report_key')
       if (err)
         res.send(err);
 
-      res.json(report);
+      if (report) {
+        res.json(report);
+      } else {
+        res.status(404).send({
+          error: 'No report found for key: ' + req.params.report_key
+        });
+      }
     });
   });
 
