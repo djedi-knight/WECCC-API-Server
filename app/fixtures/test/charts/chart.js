@@ -1,7 +1,7 @@
 /* global exports  */
 /* global require  */
 
-require('../models/chart');
+require('../../../models/chart');
 
 exports.BarChart = [{
   key: 'testBarChart',

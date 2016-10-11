@@ -1,7 +1,7 @@
 /* global exports  */
 /* global require  */
 
-require('../models/infoBox');
+require('../../../models/infoBox');
 
 exports.InfoBox = [{
   key: 'testInfoBox',

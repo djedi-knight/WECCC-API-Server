@@ -1,23 +1,9 @@
 /* global exports  */
 /* global require  */
 
-require('../models/report');
+require('../../../models/report');
 
 exports.Report = [{
-  key: 'test-report',
-  title: 'Report Title',
-  data: [{
-    indicator: 'Test Indicator',
-    goal: '100%',
-    baseline: 'A',
-    change: '+5%',
-    trend: 'UP',
-    colourCode: 'GREEN'
-  }]
-},
-
-
-{
   key: 'progress-tracker-test-report',
   title: 'Progress Tracker',
   data: [{

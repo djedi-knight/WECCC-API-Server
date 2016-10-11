@@ -1,19 +1,19 @@
 /* global global  */
 /* global require */
-/* global process */
 /* global console */
 
 // BASE SETUP
 // =============================================================================
 
 // call the packages/ data we need
+var fs          = require('fs');
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var logger      = require('morgan');
 var mongoose    = require('mongoose');
 var mongodbUri  = require('mongodb-uri');
 var fixtures    = require('pow-mongoose-fixtures');
-var minimist    = require('minimist');
+// var minimist    = require('minimist');
 
 var config      = require('./config.json');
 
@@ -23,7 +23,7 @@ var pages       = require('./app/routes/pages');
 var reports     = require('./app/routes/reports');
 
 // get arguments
-var args = minimist(process.argv.slice(2));
+// var args = minimist(process.argv.slice(2));
 
 // Use native Node promises for Mongoose
 mongoose.Promise = global.Promise;
@@ -36,14 +36,40 @@ mongoose.connect(uri);
 // initialize our database with fixtures (only for DEV environment)
 var db = mongoose.connection;
 
-if (args.env === 'DEV') {
-  console.log('Applying Fixtures...');
-  fixtures.load('app/fixtures', db, function(err) {
-    if (err) {
-      throw new Error(err);
-    }
+console.log('Applying Fixtures...');
+
+var fixturesTestPath = 'app/fixtures/test';
+var fixturesProdPath = 'app/fixtures/prod';
+
+fs.readdir(fixturesTestPath, function(err, list) {
+  if (err) {
+    throw new Error(err);
+  }
+
+  list.forEach(function(folder) {
+    var path = fixturesTestPath + "/" + folder;
+    fixtures.load(path, db, function(err) {
+      if (err) {
+        throw new Error(err);
+      }
+    });
   });
-}
+});
+
+fs.readdir(fixturesProdPath, function(err, list) {
+  if (err) {
+    throw new Error(err);
+  }
+
+  list.forEach(function(folder) {
+    var path = fixturesProdPath + "/" + folder;
+    fixtures.load(path, db, function(err) {
+      if (err) {
+        throw new Error(err);
+      }
+    });
+  });
+});
 
 // initialize Express server
 console.log('Initializing Express Server...');
