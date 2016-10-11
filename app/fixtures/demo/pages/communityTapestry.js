@@ -4,7 +4,7 @@
 require('../../../models/page');
 
 exports.Page = [{
-  key: 'community-tapestry-test-page',
+  key: 'community-tapestry-demo-page',
   title: 'Community Tapestry',
   pieCharts: [{
     key: 'community-tapestry-pie-chart',

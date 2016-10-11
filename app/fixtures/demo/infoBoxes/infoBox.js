@@ -4,7 +4,7 @@
 require('../../../models/infoBox');
 
 exports.InfoBox = [{
-  key: 'testInfoBox',
+  key: 'demo-info-box',
   title: 'Title',
   value: 'A'
 }];

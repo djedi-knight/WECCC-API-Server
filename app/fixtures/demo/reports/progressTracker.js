@@ -4,7 +4,7 @@
 require('../../../models/report');
 
 exports.Report = [{
-  key: 'progress-tracker-test-report',
+  key: 'progress-tracker-demo-report',
   title: 'Progress Tracker',
   data: [{
     indicator: 'Income',

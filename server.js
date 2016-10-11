@@ -38,16 +38,16 @@ var db = mongoose.connection;
 
 console.log('Applying Fixtures...');
 
-var fixturesTestPath = 'app/fixtures/test';
+var fixturesDemoPath = 'app/fixtures/demo';
 var fixturesProdPath = 'app/fixtures/prod';
 
-fs.readdir(fixturesTestPath, function(err, list) {
+fs.readdir(fixturesDemoPath, function(err, list) {
   if (err) {
     throw new Error(err);
   }
 
   list.forEach(function(folder) {
-    var path = fixturesTestPath + "/" + folder;
+    var path = fixturesDemoPath + "/" + folder;
     fixtures.load(path, db, function(err) {
       if (err) {
         throw new Error(err);

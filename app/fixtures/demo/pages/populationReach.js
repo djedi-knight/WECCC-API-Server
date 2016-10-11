@@ -4,7 +4,7 @@
 require('../../../models/page');
 
 exports.Page = [{
-  key: 'population-reach-test-page',
+  key: 'population-reach-demo-page',
   title: 'Population Reach',
   infoBoxes: [{
     key: 'tab-1',

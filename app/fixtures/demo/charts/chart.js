@@ -4,7 +4,7 @@
 require('../../../models/chart');
 
 exports.BarChart = [{
-  key: 'testBarChart',
+  key: 'demo-bar-chart',
   data: [{
     title: 'Bar 1',
     value: 100
@@ -12,7 +12,7 @@ exports.BarChart = [{
 }];
 
 exports.LineChart = [{
-  key: 'testLineChart',
+  key: 'demo-line-chart',
   data: [{
     title: 'Line 1',
     values: [{
@@ -23,7 +23,7 @@ exports.LineChart = [{
 }];
 
 exports.PieChart = [{
-  key: 'testPieChart',
+  key: 'demo-pie-chart',
   data: [{
     title: 'Slice 1',
     value: 10
