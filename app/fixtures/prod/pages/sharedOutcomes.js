@@ -4,7 +4,7 @@
 require('../../../models/page');
 
 exports.Page = [{
-  key: 'shared-outcomes-demo-page',
+  key: 'shared-outcomes-page',
   title: 'Shared Outcomes',
   infoBoxes: [{
     key: 'registered-caregivers',
