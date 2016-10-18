@@ -3,6 +3,8 @@
 
 var mongoose = require('mongoose');
 
+var detailsReport  = require('../models/report').detailsReport.schema;
+
 var BarChartSchema = new mongoose.Schema({
   key: { type: String, required: true },
   data: [{
@@ -26,7 +28,8 @@ var PieChartSchema = new mongoose.Schema({
   key: { type: String, required: true },
   data: [{
     x: { type: String },
-    y: { type: Number }
+    y: { type: Number },
+    details: detailsReport
   }]
 });
 
