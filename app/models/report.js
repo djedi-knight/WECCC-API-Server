@@ -3,7 +3,7 @@
 
 var mongoose = require('mongoose');
 
-var ReportSchema = new mongoose.Schema({
+var ProgressReportSchema = new mongoose.Schema({
   key: { type: String, required: true },
   title: { type: String, required: true },
   data: [{
@@ -16,7 +16,22 @@ var ReportSchema = new mongoose.Schema({
   }]
 });
 
+var DetailsReportSchema = new mongoose.Schema({
+  key: { type: String, required: true },
+  data: [{
+    name: { type: String },
+    general: { type: String },
+    subgroup: { type: String }
+  }]
+});
+
 module.exports = {
-  schema: ReportSchema,
-  model: mongoose.model('Report', ReportSchema)
+  progressReport: {
+    schema: ProgressReportSchema,
+    model: mongoose.model('ProgressReport', ProgressReportSchema)
+  },
+  detailsReport: {
+    schema: DetailsReportSchema,
+    model: mongoose.model('DetailsReport', DetailsReportSchema)
+  }
 };

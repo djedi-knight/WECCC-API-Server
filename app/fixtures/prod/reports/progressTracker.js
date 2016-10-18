@@ -3,7 +3,7 @@
 
 require('../../../models/report');
 
-exports.Report = [{
+exports.ProgressReport = [{
   key: 'progress-tracker-report',
   title: 'Progress Tracker',
   data: [{

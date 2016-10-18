@@ -6,7 +6,7 @@ var router      = express.Router();
 
 // MODEL SETUP
 // =============================================================================
-var Report    = require('../models/report').model;
+var Report    = require('../models/report').progressReport.model;
 
 // ROUTES: /reports
 // =============================================================================
