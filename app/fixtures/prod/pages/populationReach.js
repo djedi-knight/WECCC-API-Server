@@ -42,49 +42,6 @@ exports.Page = [{
       trend: 'DOWN'
     }]
   }, {
-    key: 'dependency-subgroup-1',
-    title: 'Dependency Level',
-    list: [{
-      key: 'light',
-      title: 'Light',
-      score: '111',
-      trend: 'DOWN'
-    }, {
-      key: 'moderate',
-      title: 'Moderate',
-      score: '90',
-      trend: 'UP'
-    }, {
-      key: 'complex',
-      title: 'Complex',
-      score: '20',
-      trend: 'NONE'
-    }, {
-      key: 'eol',
-      title: 'EOL',
-      score: '0',
-      trend: 'NONE'
-    }]
-  }, {
-    key: 'registered-subgroup-1',
-    title: 'Registed To',
-    list: [{
-      key: 'care',
-      title: 'Care',
-      score: '111',
-      trend: 'UP'
-    }, {
-      key: 'outreach',
-      title: 'Outreach',
-      score: '90',
-      trend: 'UP'
-    }, {
-      key: 'neighbourhood',
-      title: 'Neighbourhood',
-      score: '20',
-      trend: 'DOWN'
-    }]
-  }, {
     key: 'priority-subgroup-2',
     title: 'Priority Subgroup',
     list: [{
