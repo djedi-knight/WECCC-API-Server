@@ -78,7 +78,7 @@ exports.Page = [{
       }
     }, {
       x: 'Social Groups',
-      y: 20.0,
+      y: 10.0,
       details: {
         key: 'social-groups-details-report',
         data: [{
@@ -91,7 +91,7 @@ exports.Page = [{
       }
     }, {
       x: 'Family',
-      y: 40.0,
+      y: 10.0,
       details: {
         key: 'family-details-report',
         data: [{
@@ -104,7 +104,7 @@ exports.Page = [{
       }
     }, {
       x: 'Friends',
-      y: 10.0,
+      y: 60.0,
       details: {
         key: 'friends-details-report',
         data: [{
