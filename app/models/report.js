@@ -19,9 +19,8 @@ var ProgressReportSchema = new mongoose.Schema({
 var DetailsReportSchema = new mongoose.Schema({
   key: { type: String, required: true },
   data: [{
-    name: { type: String },
-    general: { type: String },
-    subgroup: { type: String }
+    indicator: { type: String },
+    values: [{ type: String }]
   }]
 });
 

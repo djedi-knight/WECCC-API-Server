@@ -9,56 +9,112 @@ exports.Page = [{
   pieCharts: [{
     key: 'community-pattern-pie-chart-1',
     data: [{
-      x: 'Slice 1',
+      x: 'Self Help',
       y: 50.0,
       details: {
-        key: 'slice-1-details-report',
+        key: 'self-help-details-report',
         data: [{
-          name: 'Directed',
-          general: '32%',
-          subgroup: '30%'
+          indicator: 'Directed',
+          values: ['32%', '30%']
         }, {
-          name: 'Informal',
-          general: '10%',
-          subgroup: '15%'
+          indicator: 'Informal',
+          values: ['10%', '12%']
         }]
       }
     }, {
-      x: 'Slice 2',
-      y: 50.0
+      x: 'Social Groups',
+      y: 45.0,
+      details: {
+        key: 'social-groups-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['19%', '45%']
+        }, {
+          indicator: 'Informal',
+          values: ['16%', '32%']
+        }]
+      }
     }, {
-      x: 'Slice 3',
-      y: 60.0
+      x: 'Family',
+      y: 60.0,
+      details: {
+        key: 'family-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['64%', '10%']
+        }, {
+          indicator: 'Informal',
+          values: ['20%', '33%']
+        }]
+      }
     }, {
-      x: 'Slice 4',
-      y: 30.0
-    }, {
-      x: 'Slice 5',
-      y: 15.0
-    }, {
-      x: 'Slice 6',
-      y: 65.0
-    }, {
-      x: 'Slice 7',
-      y: 55.0
-    }, {
-      x: 'Slice 8',
-      y: 20.0
+      x: 'Friends',
+      y: 25.0,
+      details: {
+        key: 'friends-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['14%', '80%']
+        }, {
+          indicator: 'Informal',
+          values: ['27%', '18%']
+        }]
+      }
     }]
   }, {
     key: 'community-pattern-pie-chart-2',
     data: [{
-      x: 'Slice 1',
-      y: 80.0
+      x: 'Self Help',
+      y: 25.0,
+      details: {
+        key: 'self-help-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['12%', '44%']
+        }, {
+          indicator: 'Informal',
+          values: ['87%', '45%']
+        }]
+      }
     }, {
-      x: 'Slice 2',
-      y: 20.0
+      x: 'Social Groups',
+      y: 20.0,
+      details: {
+        key: 'social-groups-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['14%', '10%']
+        }, {
+          indicator: 'Informal',
+          values: ['20%', '25%']
+        }]
+      }
     }, {
-      x: 'Slice 3',
-      y: 40.0
+      x: 'Family',
+      y: 40.0,
+      details: {
+        key: 'family-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['25%', '18%']
+        }, {
+          indicator: 'Informal',
+          values: ['67%', '12%']
+        }]
+      }
     }, {
-      x: 'Slice 4',
-      y: 60.0
+      x: 'Friends',
+      y: 10.0,
+      details: {
+        key: 'friends-details-report',
+        data: [{
+          indicator: 'Directed',
+          values: ['10%', '40%']
+        }, {
+          indicator: 'Informal',
+          values: ['80%', '12%']
+        }]
+      }
     }]
   }]
 }];
