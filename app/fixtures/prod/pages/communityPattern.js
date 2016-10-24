@@ -116,5 +116,120 @@ exports.Page = [{
         }]
       }
     }]
+  }],
+  scoreCards: [{
+    key: 'qol-subgroup-1',
+    title: 'Quality of Life',
+    list: [{
+      key: 'community',
+      title: 'Community',
+      score: 'A+',
+      trend: 'UP'
+    }, {
+      key: 'subgroup',
+      title: 'Subgroup',
+      score: 'B',
+      trend: 'DOWN'
+    }, {
+      key: 'equity-gap',
+      title: 'Equity Gap',
+      score: '-25',
+      trend: 'DOWN'
+    }]
+  }, {
+    key: 'caregiver-burden-subgroup-1',
+    title: 'Caregiver Burden',
+    list: [{
+      key: 'community',
+      title: 'Community',
+      score: 'D',
+      trend: 'DOWN'
+    }, {
+      key: 'subgroup',
+      title: 'Subgroup',
+      score: 'C',
+      trend: 'DOWN'
+    }, {
+      key: 'equity-gap',
+      title: 'Equity Gap',
+      score: '-10',
+      trend: 'DOWN'
+    }]
+  }, {
+    key: 'reported-health-subgroup-1',
+    title: 'Reported Health',
+    list: [{
+      key: 'community',
+      title: 'Community',
+      score: 'B+',
+      trend: 'NONE'
+    }, {
+      key: 'subgroup',
+      title: 'Subgroup',
+      score: 'D-',
+      trend: 'DOWN'
+    }, {
+      key: 'equity-gap',
+      title: 'Equity Gap',
+      score: '+30',
+      trend: 'UP'
+    }]
+  }, {
+    key: 'qol-subgroup-2',
+    title: 'Quality of Life',
+    list: [{
+      key: 'community',
+      title: 'Community',
+      score: 'B+',
+      trend: 'NONE'
+    }, {
+      key: 'subgroup',
+      title: 'Subgroup',
+      score: 'A',
+      trend: 'UP'
+    }, {
+      key: 'equity-gap',
+      title: 'Equity Gap',
+      score: '-30',
+      trend: 'DOWN'
+    }]
+  }, {
+    key: 'caregiver-burden-subgroup-2',
+    title: 'Caregiver Burden',
+    list: [{
+      key: 'community',
+      title: 'Community',
+      score: 'C',
+      trend: 'DOWN'
+    }, {
+      key: 'subgroup',
+      title: 'Subgroup',
+      score: 'F',
+      trend: 'DOWN'
+    }, {
+      key: 'equity-gap',
+      title: 'Equity Gap',
+      score: '+10',
+      trend: 'UP'
+    }]
+  }, {
+    key: 'reported-health-subgroup-2',
+    title: 'Reported Health',
+    list: [{
+      key: 'community',
+      title: 'Community',
+      score: 'C+',
+      trend: 'DOWN'
+    }, {
+      key: 'subgroup',
+      title: 'Subgroup',
+      score: 'B',
+      trend: 'NONE'
+    }, {
+      key: 'equity-gap',
+      title: 'Equity Gap',
+      score: '+15',
+      trend: 'UP'
+    }]
   }]
 }];
