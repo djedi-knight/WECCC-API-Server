@@ -46,4 +46,4 @@ node_modules
 
 # DB files #
 ################
-config.db
+config.json
