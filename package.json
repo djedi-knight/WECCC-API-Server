@@ -4,8 +4,8 @@
   "description": "Server-side API Implementation for WECCC Reporting Tool",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
     "start:dev": "node server.js --env DEV",
+    "start:prod": "node server.js --env PROD",
     "lint": "eslint -c .eslintrc app",
     "test": "mocha \"app/tests/*@(.js)\"",
     "test:watch": "npm run test -- --watch --watch-extensions js"
