@@ -4,15 +4,17 @@ Server-side API Implementation for WECCC Reporting Tool
 
 ## Installation
 
+The following needs to first be installed:
+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [MongoDB](https://docs.mongodb.com/manual/installation/#tutorials)
+- [NodeJS](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+
 Intall the code from GitHub using the following command:
 
 ```sh
 $ git clone git@github.com:djedi-knight/WECCC-API-Server.git
 ```
-The following need to be installed:
-
-- [MongoDB](https://docs.mongodb.com/manual/installation/#tutorials)
-- [NodeJS](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 
 Once completed, install all required node modules:
 
@@ -21,9 +23,9 @@ $ cd WECCC-API-Server
 $ npm install
 ```
 
-## Deployment
+### MongoDB
 
-1) Start a mongod service:
+Start a mongod service:
 
 ```sh
 $ sudo service mongod start
