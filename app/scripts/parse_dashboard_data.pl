@@ -5,7 +5,7 @@
 
 use Text::CSV;
 
-my $filename = "dashboard.csv";
+my $filename = "import_data.csv";
 my @rows;                       # input document rows
 my %pages;                      # output JSON documents organized by page
 
@@ -33,7 +33,7 @@ my $firstRow = $csv->getline($fh);
 
 #  Each different element type will require different handling
 
-my @lastrow; 
+my @lastrow;
 my $lastpage = "";
 while (my @row = $csv->getline($fh)){
     my $rowdata; # processed row data
@@ -74,7 +74,7 @@ close $fh;
 
 sub processInfobox{
     my $output;
-    
+
     my @row= @{$_[0]};
 
     my @lastrow = @{$_[1]};
