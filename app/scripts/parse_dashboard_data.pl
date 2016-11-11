@@ -9,14 +9,14 @@ my $filename = "dashboard.csv";
 my @rows;                       # input document rows
 my %pages;                      # output JSON documents organized by page
 
-my $csv = Text::CSV-> new ({binary=>1})
+my $csv = Text::CSV->new ({binary=>1})
     or die "Cannot use CSV: ".Text::CSV->error_diag();
 
 open my $fh, "<:encoding(utf8)", "$filename" or die "$filename: $!";
 
 
 # get column headers out of our way
-$firstRow = $csv->getline($fh);
+my $firstRow = $csv->getline($fh);
 
 # Data structure
 #
@@ -33,22 +33,22 @@ $firstRow = $csv->getline($fh);
 
 #  Each different element type will require different handling
 
-my $lastrow; 
+my @lastrow; 
 my $lastpage = "";
-while (my $row = $csv->getline($fh)){
+while (my @row = $csv->getline($fh)){
     my $rowdata; # processed row data
-    my $page = @$row[0];
+    my $page = $row[0];
     if ($page ne $lastpage){ # new page data
         $pages{$page} = <<"EOF";
 [{
-    key: '{@$row[5]}',
-    title: '{@$row[6]}',
+    key: '{$row[5]}',
+    title: '{$row[6]}',
 
-EO
+EOF
     }
+    if ($row[2] ne "infoboxes"){
 
-    if (@$row[2] eq "infoboxes"){
-        my $infoboxJSON = processInfobox($row,$lastrow);
+        my $infoboxJSON = processInfobox(@row,@lastrow);
         $pages{$page} = $pages{$page} . $infoboxJSON;
     }
 #    if (@$row[2] eq "scoreCards"){
@@ -61,28 +61,32 @@ EO
 #        $rowdata = processPieChartDetail($row,$lastrow);
 #    }
 
-    $lastpage = @$row[0]; # previous page name - check for change
-    $lastrow = $row; # previous row's data - sometimes needed for context
+    $lastpage = $row[0]; # previous page name - check for change
+    @lastrow = @row; # previous row's data - sometimes needed for context
 }
 
-foreach $page (keys %pages){
+foreach my $page (keys %pages){
     print $pages{$page};
 }
 
 $csv->eof or $csv->error_diag();
 close $fh;
 
-sub processInfobox($row,$lastrow){
+sub processInfobox{
     my $output;
-    if (@$lastrow[2] ne "infoboxes"){
-        $output = "infoboxes:[{";
+    
+    my @row= @{$_[0]};
 
-    }
-    $output+=<<"EOL";
-key: '{@$row[5]}',
-title: '{@$row[6]}',
-value: '{@$row[7]}'
-EOL
+    my @lastrow = @{$_[1]};
+
+if ($lastrow[2] ne "infoboxes"){
+$output = "infoboxes:[{";
+
+}
+ $output = $output."key: '".$row[5]."',".
+           "title: '".$row[6]."',".
+           "value: '".$row[7]."'";
+
 print $output;
 return $output;
 }
