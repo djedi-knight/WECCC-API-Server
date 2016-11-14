@@ -5,7 +5,8 @@
 
 use Text::CSV;
 
-my $filename = "dashboard.csv";
+my $filename = "import_data.csv";
+my $output_filename = "sharedOutcomes.js";
 my @rows;                       # input document rows
 my %pages;                      # output JSON documents organized by page
 
@@ -34,7 +35,10 @@ my $firstRow = $csv->getline($fh);
 #  Each different element type will require different handling
 
 my @lastrow; 
-my $output = "";
+my $output = "/* global exports  */\n".
+             "/* global require  */\n".
+             "require('../../../models/page');\n".
+             "exports.Page = ";
 while (my $row_r = $csv->getline($fh)){
 
     my @row = @{$row_r};
@@ -66,13 +70,20 @@ while (my $row_r = $csv->getline($fh)){
 
 }
 
-# Close off unclosed arrays and 
+# Close off unclosed arrays 
 
 $output = $output . "]\n}]\n}];";
-print $output;
 
+#close CSV input file
 $csv->eof or $csv->error_diag();
 close $fh;
+
+# write output to file
+open (my $output_fh, '>', $output_filename);
+print $output_fh $output;
+close $output_hf;
+
+
 
 sub processInfobox{
     # Shared outcomes page has one infobox. Those with a list will require a different
