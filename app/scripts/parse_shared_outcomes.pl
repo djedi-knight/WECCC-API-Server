@@ -6,7 +6,8 @@
 use Text::CSV;
 
 my $filename = "import_data.csv";
-my $output_filename = "sharedOutcomes.js";
+my $output_dir = "output";
+my $output_filename = "/sharedOutcomes.js";
 my @rows;                       # input document rows
 my %pages;                      # output JSON documents organized by page
 
@@ -34,7 +35,7 @@ my $firstRow = $csv->getline($fh);
 
 #  Each different element type will require different handling
 
-my @lastrow; 
+my @lastrow;
 my $output = "/* global exports  */\n".
              "/* global require  */\n".
              "require('../../../models/page');\n".
@@ -70,26 +71,27 @@ while (my $row_r = $csv->getline($fh)){
 
 }
 
-# Close off unclosed arrays 
+# Close off unclosed arrays
 
 $output = $output . "]\n}]\n}];";
 
-#close CSV input file
+# Close CSV input file
 $csv->eof or $csv->error_diag();
 close $fh;
 
-# write output to file
-open (my $output_fh, '>', $output_filename);
+# Write output to file
+mkdir ($output_dir) unless (-d $output_dir);
+open (my $output_fh, '>', $output_dir . $output_filename);
 print $output_fh $output;
 close $output_hf;
 
-
+# Functions
 
 sub processInfobox{
     # Shared outcomes page has one infobox. Those with a list will require a different
     # subroutine.
     my $infobox_output;
-    
+
     my @row= @{$_[0]};
 
     my @lastrow = @{$_[1]};
@@ -117,7 +119,7 @@ sub processScoreCard{
     my @lastrow = @{$_[1]};
     if ($lastrow[2] ne "scoreCards"){ # add preamble for scorecards if it's the first
         $scorecard_output = $scorecard_output.",\nscoreCards:[\n";
-    }else{ 
+    }else{
         if ($lastrow[3] eq $row[3]){ # add comma unless we are closing off a list
             $scorecard_output = $scorecard_output.",";
         }
@@ -131,7 +133,7 @@ sub processScoreCard{
             "{\nkey:'".$row[3]."',\n".
             "title:'".$row[4]."',\n".
             "list:[";
-        
+
     }
     $scorecard_output = $scorecard_output."{key: '".$row[5]."',\n".
                                            "title:'".$row[6]."',\n".
