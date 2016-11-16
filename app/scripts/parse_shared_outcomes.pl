@@ -48,7 +48,7 @@ while (my $row_r = $csv->getline($fh)){
       $output = $output . processPageStart(\@row);
     }
     if ($row[2] eq "infoboxes") {
-        my $infoboxJSON = processInfobox(\@row,\@lastrow);
+        my $infoboxJSON = processInfoBox(\@row,\@lastrow);
         $output = $output . $infoboxJSON;
     }
     if ($row[2] eq "scoreCards") {
@@ -104,7 +104,7 @@ END_OUTPUT
   return $page_output;
 }
 
-sub processInfobox {
+sub processInfoBox {
   my @row= @{$_[0]};
   my @lastrow = @{$_[1]};
   my $infobox_output;
@@ -115,10 +115,10 @@ sub processInfobox {
   infoBoxes: [{
 END_OUTPUT
 
-  } else { # close off infobox
+  } else { # close off infobox and start a new one
 
     $infobox_output = $infobox_output . <<"END_OUTPUT";
-  }
+  }, {
 END_OUTPUT
 
   }
@@ -127,7 +127,6 @@ END_OUTPUT
     key: '$row[5]',
     title: '$row[6]',
     value: '$row[7]'
-  }],
 END_OUTPUT
 
   return $infobox_output;
@@ -141,6 +140,7 @@ sub processScoreCard {
     if ($lastrow[2] ne "scoreCards"){ # add preamble for scorecards
 
       $scorecard_output = <<"END_OUTPUT";
+  }],
   scoreCards: [{
 END_OUTPUT
 
