@@ -79,6 +79,7 @@ close $output_hf;
 
 sub processPageStart {
   my @row= @{$_[0]};
+
   my $page_output = <<"END_OUTPUT";
 /* global exports  */
 /* global require  */
@@ -89,6 +90,7 @@ exports.Page = [{
   key: '$row[0]',
   title: '$row[1]',
 END_OUTPUT
+
   return $page_output;
 }
 
@@ -98,6 +100,7 @@ sub processPageEnd {
   }]
 }];
 END_OUTPUT
+
   return $page_output;
 }
 
@@ -106,14 +109,18 @@ sub processInfobox {
   my @lastrow = @{$_[1]};
   my $infobox_output;
 
-  if ($lastrow[2] ne "infoboxes") {  # add preamble for infobox if it's the first
+  if ($lastrow[2] ne "infoboxes") {  # add preamble for the first infobox
+
     $infobox_output = <<"END_OUTPUT";
   infoBoxes: [{
 END_OUTPUT
-  } else { # close off infobox if it isn't
+
+  } else { # close off infobox
+
     $infobox_output = $infobox_output . <<"END_OUTPUT";
   }
 END_OUTPUT
+
   }
 
   $infobox_output = $infobox_output .  <<"END_OUTPUT";
@@ -131,24 +138,30 @@ sub processScoreCard {
     my @lastrow = @{$_[1]};
     my $scorecard_output;
 
-    if ($lastrow[2] ne "scoreCards"){ # add preamble for scorecards if it's the first
+    if ($lastrow[2] ne "scoreCards"){ # add preamble for scorecards
+
       $scorecard_output = <<"END_OUTPUT";
   scoreCards: [{
 END_OUTPUT
+
     } else {
       if ($lastrow[3] eq $row[3]) { # add comma unless we are closing off a list
+
         $scorecard_output = $scorecard_output . <<"END_OUTPUT";
     }, {
 END_OUTPUT
+
       }
     }
 
     if ($lastrow[3] ne $row[3]){
       if ($lastrow[3] ne ""){ # close off previous list if not first set scorebox
+
         $scorecard_output = $scorecard_output . <<"END_OUTPUT";
     }]
   }, {
 END_OUTPUT
+
       }
 
       $scorecard_output = $scorecard_output . <<"END_OUTPUT";
@@ -163,4 +176,5 @@ END_OUTPUT
       title: '$row[6]',
       score: '$row[7]'
 END_OUTPUT
+
 }
