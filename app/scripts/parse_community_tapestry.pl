@@ -88,7 +88,9 @@ sub processPageStart {
   my $page_output = <<"END_OUTPUT";
 /* global exports  */
 /* global require  */
+
 require('../../../models/page');
+
 exports.Page = [{
   key: '$row[0]',
   title: '$row[1]',
@@ -123,60 +125,65 @@ END_OUTPUT
   } else { # close off pie chart and start a new one
 
     $piechart_output = $piechart_output . <<"END_OUTPUT";
-      }]
-    }
-  }, {
+        }]
+      }
+    }, {
 END_OUTPUT
 
   }
 
-  $piechart_output = $piechart_output .  <<"END_OUTPUT"; 
-    x: '$row[6]',
-    y: '$row[7]',
+  $piechart_output = $piechart_output .  <<"END_OUTPUT";
+      x: '$row[6]',
+      y: $row[7],
 END_OUTPUT
 
   return $piechart_output;
 }
 
-sub processPieChartDetail{
+sub processPieChartDetail {
   my @row= @{$_[0]};
   my @lastrow = @{$_[1]};
   my $piechartdetail_output;
 
-  #print $lastrow[2]. "\n";
   if ($lastrow[2] eq "pieCharts"){ # open detail section
+
     $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-    details: {
-    key: '$row[5]',
-    data: [{
+      details: {
+        key: '$row[5]',
+        data: [{
 END_OUTPUT
+
   }else{
+
     if ($lastrow[6] ne $row[6]){ # close off detail entry and open next one
+
     $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-  }, {
+        }, {
 END_OUTPUT
+
     }
   }
   if ($lastrow[6] ne $row[6]){ # opening of detailed data
+
     $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-    indicator: '$row[6]',
-    values: ['$row[7]',
+          indicator: '$row[6]',
 END_OUTPUT
-  }else{ # closing of detailed datta
-    $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-    '$row[7]']
-END_OUTPUT
+
+    $piechartdetail_output = $piechartdetail_output . "          values: ['$row[7]',";
+
+  } else { # closing of detailed datta
+    $piechartdetail_output = $piechartdetail_output . "'$row[7]']\n";
   }
 }
 
 sub processScoreCard {
-  my @row= @{$_[0]};
-  my @lastrow = @{$_[1]};
-  my $scorecard_output;
+    my @row= @{$_[0]};
+    my @lastrow = @{$_[1]};
+    my $scorecard_output;
 
-  if ($lastrow[2] ne "scoreCards"){ # close off chart section and add preamble for scorecards
+    if ($lastrow[2] ne "scoreCards"){ # add preamble for scorecards
 
-    $scorecard_output = <<"END_OUTPUT";
+      $scorecard_output = <<"END_OUTPUT";
         }]
       }
     }]
@@ -184,38 +191,39 @@ sub processScoreCard {
   scoreCards: [{
 END_OUTPUT
 
-  } else {
-    if ($lastrow[3] eq $row[3]) { # add comma unless we are closing off a list
+    } else {
+      if ($lastrow[3] eq $row[3]) { # add comma unless we are closing off a list
 
-      $scorecard_output = $scorecard_output . <<"END_OUTPUT";
+        $scorecard_output = $scorecard_output . <<"END_OUTPUT";
     }, {
 END_OUTPUT
 
+      }
     }
-  }
 
-  if ($lastrow[3] ne $row[3]){
-    if ($lastrow[3] ne ""){ # close off previous list if not first set scorebox
+    if ($lastrow[3] ne $row[3]){
+      if ($lastrow[2] eq "scoreCards"){ # close off previous list if not first set scorebox
 
-      $scorecard_output = $scorecard_output . <<"END_OUTPUT";
+        $scorecard_output = $scorecard_output . <<"END_OUTPUT";
     }]
   }, {
 END_OUTPUT
 
-    }
+      }
 
-    $scorecard_output = $scorecard_output . <<"END_OUTPUT"; 
+      $scorecard_output = $scorecard_output . <<"END_OUTPUT";
     key: '$row[3]',
     title: '$row[4]',
     list: [{
 END_OUTPUT
-  }
 
-  $scorecard_output = $scorecard_output . <<"END_OUTPUT";
-    key: '$row[5]',
-    title: '$row[6]',
-    score: '$row[7]',
-    trend: '$row[8]'
+    }
+
+    $scorecard_output = $scorecard_output . <<"END_OUTPUT";
+      key: '$row[5]',
+      title: '$row[6]',
+      score: '$row[7]',
+      trend: '$row[8]'
 END_OUTPUT
 
 }

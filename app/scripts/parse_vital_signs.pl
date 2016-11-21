@@ -11,7 +11,7 @@ my $output_filename = "/vitalSigns.js";
 my @rows; # input document rows
 
 my $csv = Text::CSV->new ({binary=>1})
-    or die "Cannot use CSV: ".Text::CSV->error_diag();
+  or die "Cannot use CSV: ".Text::CSV->error_diag();
 
 open my $fh, "<:encoding(utf8)", "$filename" or die "$filename: $!";
 
@@ -80,7 +80,7 @@ sub processPageStart {
 /* global exports  */
 /* global require  */
 
-"require('../../../models/page');"
+require('../../../models/page');
 
 exports.Page = [{
   key: '$row[0]',
@@ -122,7 +122,7 @@ END_OUTPUT
     }
 
     if ($lastrow[3] ne $row[3]){
-      if ($lastrow[3] ne ""){ # close off previous list if not first set scorebox
+      if ($lastrow[2] eq "scoreCards"){ # close off previous list if not first set scorebox
 
         $scorecard_output = $scorecard_output . <<"END_OUTPUT";
     }]
@@ -136,6 +136,7 @@ END_OUTPUT
     title: '$row[4]',
     list: [{
 END_OUTPUT
+
     }
 
     $scorecard_output = $scorecard_output . <<"END_OUTPUT";
