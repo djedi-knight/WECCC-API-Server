@@ -15,6 +15,10 @@ exports.Page = [{
     key: 'people-subgroup',
     title: 'People',
     list: [{
+      key: 'health',
+      title: 'Health',
+      score: 'A-'
+    }, {
       key: 'quality-of-life',
       title: 'Quality of Life',
       score: 'A'
@@ -23,17 +27,13 @@ exports.Page = [{
       title: 'Experience',
       score: 'B+'
     }, {
-      key: 'expected',
-      title: 'Expected',
+      key: 'social-connection',
+      title: 'Social Connection',
       score: 'C-'
-    }, {
-      key: 'burden',
-      title: 'Burden',
-      score: '87.2'
     }]
   }, {
-    key: 'core-partners-subgroup',
-    title: 'Core Partners',
+    key: 'care-partners-subgroup',
+    title: 'Care Partners',
     list: [{
       key: 'quality-of-life',
       title: 'Quality of Life',
@@ -43,13 +43,25 @@ exports.Page = [{
       title: 'Experience',
       score: 'A+'
     }, {
-      key: 'expected',
-      title: 'Expected',
+      key: 'social-connection',
+      title: 'Social Connection',
       score: 'D-'
     }, {
       key: 'burden',
       title: 'Burden',
       score: '65.4'
+    }]
+  }, {
+    key: 'neighbours-subgroup',
+    title: 'Neighbours',
+    list: [{
+      key: 'quality-of-life',
+      title: 'Quality of Life',
+      score: 'A+'
+    }, {
+      key: 'social-connection',
+      title: 'Social Connection',
+      score: 'B'
     }]
   }]
 }];
