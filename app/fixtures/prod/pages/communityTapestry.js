@@ -113,20 +113,5 @@ exports.Page = [{
         }]
       }
     }]
-  }],
-  scoreCards: [{
-    key: 'return-on-investment',
-    title: 'Return on Investment',
-    list: [{
-      key: 'social',
-      title: 'Social',
-      score: '78',
-      trend: 'UP'
-    }, {
-      key: 'economic',
-      title: 'Economic',
-      score: '110',
-      trend: 'DOWN'
-    }]
   }]
 }];
