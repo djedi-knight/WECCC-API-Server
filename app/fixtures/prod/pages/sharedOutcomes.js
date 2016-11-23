@@ -35,8 +35,8 @@ exports.Page = [{
     key: 'care-partners-subgroup',
     title: 'Care Partners',
     list: [{
-      key: 'quality-of-life',
-      title: 'Quality of Life',
+      key: 'life',
+      title: 'Life',
       score: 'C'
     }, {
       key: 'experience',
