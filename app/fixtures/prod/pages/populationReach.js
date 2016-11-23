@@ -26,13 +26,17 @@ exports.Page = [{
     key: 'registered-caregivers',
     title: 'Registered Caregivers',
     value: '0'
+  }, {
+    key: 'registered-neighbours',
+    title: 'Registered Neighbours',
+    value: '0'
   }],
   scoreCards: [{
     key: 'priority-subgroup-1',
     title: 'Priority Subgroup',
     list: [{
-      key: 'over-80',
-      title: '80+',
+      key: 'senior',
+      title: 'Senior',
       score: '78',
       trend: 'UP'
     }, {
@@ -45,8 +49,8 @@ exports.Page = [{
     key: 'priority-subgroup-2',
     title: 'Priority Subgroup',
     list: [{
-      key: 'over-80',
-      title: '80+',
+      key: 'senior',
+      title: 'Senior',
       score: '68',
       trend: 'DOWN'
     }, {
@@ -59,23 +63,23 @@ exports.Page = [{
     key: 'dependency-subgroup-2',
     title: 'Dependency Level',
     list: [{
-      key: 'light',
-      title: 'Light',
+      key: 'minimal',
+      title: 'Minimal',
       score: '99',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
-      key: 'moderate',
-      title: 'Moderate',
+      key: 'some',
+      title: 'Some',
       score: '95',
       trend: 'DOWN'
     }, {
-      key: 'complex',
-      title: 'Complex',
+      key: 'high',
+      title: 'High',
       score: '50',
       trend: 'UP'
     }, {
-      key: 'eol',
-      title: 'EOL',
+      key: 'late-stage',
+      title: 'Late Stage',
       score: '20',
       trend: 'DOWN'
     }]
@@ -86,7 +90,7 @@ exports.Page = [{
       key: 'care',
       title: 'Care',
       score: '100',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'outreach',
       title: 'Outreach',
