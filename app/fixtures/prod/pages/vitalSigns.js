@@ -28,7 +28,7 @@ exports.Page = [{
       key: 'work',
       title: 'Work',
       score: 'B+',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'housing',
       title: 'Housing',
@@ -48,7 +48,7 @@ exports.Page = [{
       key: 'environment',
       title: 'Environment',
       score: 'C-',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'learning',
       title: 'Learning',
@@ -68,7 +68,7 @@ exports.Page = [{
       key: 'getting-around',
       title: 'Getting Around',
       score: 'C+',
-      trend: 'NONE'
+      trend: 'SAME'
     }]
   }, {
     key: 'essex-subgroup',
@@ -77,7 +77,7 @@ exports.Page = [{
       key: 'belonging-leadership',
       title: 'Belonging and Leadership',
       score: 'A+',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'health',
       title: 'Health',
@@ -97,12 +97,12 @@ exports.Page = [{
       key: 'housing',
       title: 'Housing',
       score: 'C-',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'safety',
       title: 'Safety',
       score: 'C',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'arts-culture',
       title: 'Arts & Culture',
@@ -132,7 +132,7 @@ exports.Page = [{
       key: 'getting-around',
       title: 'Getting Around',
       score: 'C',
-      trend: 'NONE'
+      trend: 'SAME'
     }]
   }, {
     key: 'seniors-subgroup',
@@ -166,12 +166,12 @@ exports.Page = [{
       key: 'safety',
       title: 'Safety',
       score: 'B+',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'arts-culture',
       title: 'Arts & Culture',
       score: 'A',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'environment',
       title: 'Environment',
@@ -191,7 +191,7 @@ exports.Page = [{
       key: 'food-security',
       title: 'Food Security',
       score: 'B-',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'getting-around',
       title: 'Getting Around',
@@ -215,7 +215,7 @@ exports.Page = [{
       key: 'wellness-activity',
       title: 'Wellness and Activity',
       score: 'C+',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'work',
       title: 'Work',

@@ -162,7 +162,7 @@ exports.Page = [{
       key: 'community',
       title: 'Community',
       score: 'B+',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'subgroup',
       title: 'Subgroup',
@@ -181,7 +181,7 @@ exports.Page = [{
       key: 'community',
       title: 'Community',
       score: 'B+',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'subgroup',
       title: 'Subgroup',
@@ -224,7 +224,7 @@ exports.Page = [{
       key: 'subgroup',
       title: 'Subgroup',
       score: 'B',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'equity-gap',
       title: 'Equity Gap',

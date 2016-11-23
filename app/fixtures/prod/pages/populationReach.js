@@ -66,7 +66,7 @@ exports.Page = [{
       key: 'minimal',
       title: 'Minimal',
       score: '99',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'some',
       title: 'Some',
@@ -90,7 +90,7 @@ exports.Page = [{
       key: 'care',
       title: 'Care',
       score: '100',
-      trend: 'NONE'
+      trend: 'SAME'
     }, {
       key: 'outreach',
       title: 'Outreach',
