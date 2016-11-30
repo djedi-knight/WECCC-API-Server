@@ -8,12 +8,12 @@ exports.Page = [{
   title: 'Shared Outcomes',
   infoBoxes: [{
     key: 'registered-caregivers',
-    title: 'Registered Caregivers',
+    title: 'People Registered',
     value: '0'
   }],
   scoreCards: [{
     key: 'people-subgroup',
-    title: 'People',
+    title: 'People Needing Care',
     list: [{
       key: 'health',
       title: 'Health',
@@ -35,8 +35,8 @@ exports.Page = [{
     key: 'care-partners-subgroup',
     title: 'Care Partners',
     list: [{
-      key: 'life',
-      title: 'Life',
+      key: 'quality-of-life',
+      title: 'Quality of Life',
       score: 'C'
     }, {
       key: 'experience',
