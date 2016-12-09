@@ -48,6 +48,10 @@ node_modules
 ################
 app/scripts/output
 
+# Production fixture files #
+############################
+app/fixtures/prod
+
 # DB files #
-################
+############
 config.json

@@ -5,9 +5,9 @@
 
 use Text::CSV;
 
-my $filename = "progresstracker.csv";
+my $filename = "import_report_data.csv";
 my $output_dir = "output";
-my $output_filename = "/communityPattern.js";
+my $output_filename = "/progressTracker.js";
 my @rows; # input document rows
 
 my $csv = Text::CSV->new ({binary=>1})

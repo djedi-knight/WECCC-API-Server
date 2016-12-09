@@ -8,28 +8,28 @@ exports.Page = [{
   title: 'Shared Outcomes',
   infoBoxes: [{
     key: 'registered-caregivers',
-    title: 'People Registered',
-    value: '0'
+    title: 'Registered Caregivers',
+    value: '1'
   }],
   scoreCards: [{
     key: 'people-subgroup',
-    title: 'People Needing Care',
+    title: 'People',
     list: [{
-      key: 'health',
-      title: 'Health',
-      score: 'A-'
-    }, {
       key: 'quality-of-life',
       title: 'Quality of Life',
-      score: 'A'
+      score: 'C+'
+    }, {
+      key: 'health',
+      title: 'Health',
+      score: 'FAIR'
     }, {
       key: 'experience',
       title: 'Experience',
-      score: 'B+'
+      score: 'C+'
     }, {
       key: 'social-connection',
       title: 'Social Connection',
-      score: 'C-'
+      score: 'C+'
     }]
   }, {
     key: 'care-partners-subgroup',
@@ -37,19 +37,19 @@ exports.Page = [{
     list: [{
       key: 'quality-of-life',
       title: 'Quality of Life',
-      score: 'C'
+      score: 'B'
     }, {
       key: 'experience',
       title: 'Experience',
-      score: 'A+'
+      score: 'B+'
     }, {
       key: 'social-connection',
       title: 'Social Connection',
-      score: 'D-'
+      score: 'C+'
     }, {
       key: 'burden',
       title: 'Burden',
-      score: '65.4'
+      score: 'SEVERE'
     }]
   }, {
     key: 'neighbours-subgroup',
@@ -57,11 +57,11 @@ exports.Page = [{
     list: [{
       key: 'quality-of-life',
       title: 'Quality of Life',
-      score: 'A+'
+      score: 'N/A'
     }, {
       key: 'social-connection',
       title: 'Social Connection',
-      score: 'B'
+      score: 'N/A'
     }]
   }]
 }];

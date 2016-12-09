@@ -9,107 +9,121 @@ exports.Page = [{
   pieCharts: [{
     key: 'community-tapestry-pie-chart',
     data: [{
-      x: 'Slice 1',
-      y: 50.0,
+      x: 'Formal Care - Health',
+      y: 50,
       details: {
-        key: 'slice-1-details-report',
+        key: 'slice1-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['5%', '20%']
+          indicator: 'Primary Care',
+          values: ['32%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['15%', '72%']
+          indicator: 'Home and Community Care',
+          values: ['30%']
+        }, {
+          indicator: 'Rehabilitation',
+          values: ['30%']
+        }, {
+          indicator: 'Residential Care',
+          values: ['30%']
+        }, {
+          indicator: 'Hours of Care',
+          values: ['30%']
+        }, {
+          indicator: 'Palliative Care',
+          values: ['30%']
+        }, {
+          indicator: 'Mental Health',
+          values: ['10%']
+        }, {
+          indicator: 'Hospital',
+          values: ['12%']
         }]
       }
     }, {
-      x: 'Slice 2',
-      y: 50.0,
+      x: 'Formal Care - Social Services',
+      y: 50,
       details: {
-        key: 'slice-2-details-report',
+        key: 'slice2-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['25%', '80%']
+          indicator: 'Developmental Services',
+          values: ['32%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['67%', '14%']
+          indicator: 'Other',
+          values: ['30%']
         }]
       }
     }, {
-      x: 'Slice 3',
-      y: 60.0,
+      x: 'Formal Care - Volunteers',
+      y: 20,
       details: {
-        key: 'slice-3-details-report',
+        key: 'slice3-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['27%', '86%']
+          indicator: 'Hospice Volunteers',
+          values: ['32%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['12%', '28%']
+          indicator: 'Trained Coaches',
+          values: ['30%']
+        }, {
+          indicator: 'Other',
+          values: ['10%']
         }]
       }
     }, {
-      x: 'Slice 4',
-      y: 30.0,
+      x: 'Formal Care - Paid Services',
+      y: 50,
       details: {
-        key: 'slice-4-details-report',
+        key: 'slice4-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['2%', '29%']
+          indicator: 'Home Health Care',
+          values: ['5%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['89%', '32%']
+          indicator: 'Other',
+          values: ['20%']
         }]
       }
     }, {
-      x: 'Slice 5',
-      y: 15.0,
+      x: 'Informal Care - Family',
+      y: 30,
       details: {
-        key: 'slice-5-details-report',
+        key: 'slice5-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['71%', '49%']
+          indicator: 'Immediate Family',
+          values: ['25%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['92%', '51%']
+          indicator: 'Extended Family',
+          values: ['80%']
         }]
       }
     }, {
-      x: 'Slice 6',
-      y: 65.0,
+      x: 'Informal Care - Friends',
+      y: 60
+    }, {
+      x: 'Informal Care - Neighbours',
+      y: 80,
       details: {
-        key: 'slice-6-details-report',
+        key: 'slice7-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['81%', '88%']
+          indicator: 'Local',
+          values: ['19%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['29%', '19%']
+          indicator: 'Groups',
+          values: ['21%']
         }]
       }
     }, {
-      x: 'Slice 7',
-      y: 55.0,
-      details: {
-        key: 'slice-1-details-report',
-        data: [{
-          indicator: 'Indicator #1',
-          values: ['33%', '93%']
-        }, {
-          indicator: 'Indicator #2',
-          values: ['22%', '12%']
-        }]
-      }
+      x: 'Self Care - Self (Unaided)',
+      y: 30
     }, {
-      x: 'Slice 8',
-      y: 20.0,
+      x: 'Self Care - Monitored',
+      y: 30,
       details: {
-        key: 'slice-8-details-report',
+        key: 'slice8-details-report',
         data: [{
-          indicator: 'Indicator #1',
-          values: ['11%', '87%']
+          indicator: 'Sensors',
+          values: ['76%']
         }, {
-          indicator: 'Indicator #2',
-          values: ['39%', '43%']
+          indicator: 'Assistive Devices',
+          values: ['54%']
         }]
       }
     }]

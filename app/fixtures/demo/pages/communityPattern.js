@@ -5,12 +5,12 @@ require('../../../models/page');
 
 exports.Page = [{
   key: 'community-pattern-demo-page',
-  title: 'Group Outcomes and Equity',
+  title: 'Your Community Pattern',
   pieCharts: [{
     key: 'community-pattern-pie-chart-1',
     data: [{
-      x: 'Self Help',
-      y: 50.0,
+      x: 'Self-Help',
+      y: '50',
       details: {
         key: 'self-help-details-report',
         data: [{
@@ -23,7 +23,7 @@ exports.Page = [{
       }
     }, {
       x: 'Social Groups',
-      y: 45.0,
+      y: '45',
       details: {
         key: 'social-groups-details-report',
         data: [{
@@ -36,7 +36,7 @@ exports.Page = [{
       }
     }, {
       x: 'Family',
-      y: 60.0,
+      y: '60',
       details: {
         key: 'family-details-report',
         data: [{
@@ -49,7 +49,7 @@ exports.Page = [{
       }
     }, {
       x: 'Friends',
-      y: 25.0,
+      y: '25',
       details: {
         key: 'friends-details-report',
         data: [{
@@ -60,12 +60,9 @@ exports.Page = [{
           values: ['27%', '18%']
         }]
       }
-    }]
-  }, {
-    key: 'community-pattern-pie-chart-2',
-    data: [{
-      x: 'Self Help',
-      y: 25.0,
+    }, {
+      x: 'Self-Help',
+      y: '25',
       details: {
         key: 'self-help-details-report',
         data: [{
@@ -78,7 +75,7 @@ exports.Page = [{
       }
     }, {
       x: 'Social Groups',
-      y: 10.0,
+      y: '10',
       details: {
         key: 'social-groups-details-report',
         data: [{
@@ -91,7 +88,7 @@ exports.Page = [{
       }
     }, {
       x: 'Family',
-      y: 10.0,
+      y: '10',
       details: {
         key: 'family-details-report',
         data: [{
@@ -104,7 +101,7 @@ exports.Page = [{
       }
     }, {
       x: 'Friends',
-      y: 60.0,
+      y: '60',
       details: {
         key: 'friends-details-report',
         data: [{
@@ -133,12 +130,12 @@ exports.Page = [{
     }, {
       key: 'equity-gap',
       title: 'Equity Gap',
-      score: '-25',
+      score: '-25%',
       trend: 'DOWN'
     }]
   }, {
-    key: 'social-connection-subgroup-1',
-    title: 'Social Connection',
+    key: 'caregiver-burden-subgroup-1',
+    title: 'Caregiver Burden',
     list: [{
       key: 'community',
       title: 'Community',
@@ -171,7 +168,7 @@ exports.Page = [{
     }, {
       key: 'equity-gap',
       title: 'Equity Gap',
-      score: '+30',
+      score: '30',
       trend: 'UP'
     }]
   }, {
@@ -194,8 +191,8 @@ exports.Page = [{
       trend: 'DOWN'
     }]
   }, {
-    key: 'social-connection-subgroup-2',
-    title: 'Social Connection',
+    key: 'caregiver-burden-subgroup-2',
+    title: 'Caregiver Burden',
     list: [{
       key: 'community',
       title: 'Community',
@@ -209,7 +206,7 @@ exports.Page = [{
     }, {
       key: 'equity-gap',
       title: 'Equity Gap',
-      score: '+10',
+      score: '10',
       trend: 'UP'
     }]
   }, {
@@ -228,7 +225,7 @@ exports.Page = [{
     }, {
       key: 'equity-gap',
       title: 'Equity Gap',
-      score: '+15',
+      score: '15',
       trend: 'UP'
     }]
   }]

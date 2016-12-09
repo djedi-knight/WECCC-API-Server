@@ -9,23 +9,23 @@ exports.Page = [{
   infoBoxes: [{
     key: 'tab-1',
     title: 'Population',
-    value: '28,000'
+    value: '28000'
   }, {
     key: 'tab-2',
     title: 'Eligible',
-    value: '6,000'
+    value: '6000'
   }, {
     key: 'tab-3',
     title: 'Target',
-    value: '1,500'
+    value: '1500'
   }, {
     key: 'tab-4',
     title: 'Registered',
-    value: '0'
+    value: '17'
   }, {
     key: 'registered-caregivers',
     title: 'Registered Caregivers',
-    value: '0'
+    value: '1'
   }, {
     key: 'registered-neighbours',
     title: 'Registered Neighbours',
@@ -35,29 +35,25 @@ exports.Page = [{
     key: 'priority-subgroup-1',
     title: 'Priority Subgroup',
     list: [{
-      key: 'senior',
-      title: 'Senior',
-      score: '78',
-      trend: 'UP'
+      key: 'seniors',
+      title: 'Seniors',
+      score: '78'
     }, {
       key: 'disabled',
-      title: 'Disabled',
-      score: '10',
-      trend: 'DOWN'
+      title: 'Non-Senior Disabled',
+      score: '10'
     }]
   }, {
     key: 'priority-subgroup-2',
     title: 'Priority Subgroup',
     list: [{
-      key: 'senior',
-      title: 'Senior',
-      score: '68',
-      trend: 'DOWN'
+      key: 'seniors',
+      title: 'Seniors',
+      score: '4'
     }, {
       key: 'disabled',
-      title: 'Disabled',
-      score: '20',
-      trend: 'UP'
+      title: 'Non-Senior Disabled',
+      score: '13'
     }]
   }, {
     key: 'dependency-subgroup-2',
@@ -65,42 +61,35 @@ exports.Page = [{
     list: [{
       key: 'minimal',
       title: 'Minimal',
-      score: '99',
-      trend: 'SAME'
+      score: '3'
     }, {
       key: 'some',
       title: 'Some',
-      score: '95',
-      trend: 'DOWN'
+      score: '3'
     }, {
       key: 'high',
       title: 'High',
-      score: '50',
-      trend: 'UP'
+      score: '5'
     }, {
       key: 'late-stage',
       title: 'Late Stage',
-      score: '20',
-      trend: 'DOWN'
+      score: '6'
     }]
   }, {
     key: 'registered-subgroup-2',
-    title: 'Registed To',
+    title: 'Registered To',
     list: [{
       key: 'care',
       title: 'Care',
-      score: '100',
-      trend: 'SAME'
+      score: '17'
     }, {
       key: 'outreach',
       title: 'Outreach',
-      score: '95',
-      trend: 'DOWN'
+      score: '0'
     }, {
       key: 'neighbourhood',
       title: 'Neighbourhood',
-      score: '30',
-      trend: 'UP'
+      score: '0'
     }]
   }]
 }];

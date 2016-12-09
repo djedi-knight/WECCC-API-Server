@@ -1,0 +1,17 @@
+key,progress-tracker-report,,,,,
+title,Progress Tracker,,,,,
+Section,Indicator,Goal,Baseline,Change,Trend,colourCode
+Quality of Life,Self-reported Community Well-Being,5%,A,-2%,DOWN,RED
+Quality of Life,Self-reported Quality of Life for People Needing Care,21%,A,1%,UP,GREEN
+Quality of Life,Self-reported Quality of Life for Care Partners,,,,,
+Equity,Equity of Access,,,,,
+Equity,Equity Across Population Groups,,,,,
+Equity,Equity Within Population Groups,,,,,
+Experience of Care,Self-reported Experience of People Needing Care,,,,,
+Experience of Care,Self-reported Experience of Care Partners,,,,,
+Experience of Care,Care Partner Burden,,,,,
+Population Health,Safety,,,,,
+Population Health,Prevention,,,,,
+Per Capita Cost,Population-level Cost/Resource Use,,,,,
+,,,,,,
+,,,,,,

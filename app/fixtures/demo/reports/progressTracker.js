@@ -7,46 +7,120 @@ exports.ProgressReport = [{
   key: 'progress-tracker-demo-report',
   title: 'Progress Tracker',
   data: [{
-    indicator: 'Income',
-    goal: '5%',
-    baseline: 'A',
-    change: '-2%',
-    trend: 'DOWN',
-    colourCode: 'RED'
+    header: 'Quality of Life',
+    rows: [{
+      indicator: 'Self-reported Community Well-Being',
+      goal: '5%',
+      baseline: 'A',
+      change: '-2%',
+      trend: 'DOWN',
+      colourCode: 'RED'
+    }, {
+      indicator: 'Self-reported Quality of Life for People Needing Care',
+      goal: '21%',
+      baseline: 'A',
+      change: '1%',
+      trend: 'UP',
+      colourCode: 'GREEN'
+    }, {
+      indicator: 'Self-reported Quality of Life for Care Partners',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }]
   }, {
-    indicator: 'Age',
-    goal: '21%',
-    baseline: 'A',
-    change: '+1%',
-    trend: 'UP',
-    colourCode: 'GREEN'
+    header: 'Equity',
+    rows: [{
+      indicator: 'Equity of Access',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }, {
+      indicator: 'Equity Across Population Groups',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }, {
+      indicator: 'Equity Within Population Groups',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }]
   }, {
-    indicator: 'Education',
-    goal: '4%',
-    baseline: 'B',
-    change: '+5%',
-    trend: 'UP',
-    colourCode: 'GREEN'
+    header: 'Experience of Care',
+    rows: [{
+      indicator: 'Self-reported Experience of People Needing Care',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }, {
+      indicator: 'Self-reported Experience of Care Partners',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }, {
+      indicator: 'Care Partner Burden',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }]
   }, {
-    indicator: 'Air Pollution',
-    goal: '16%',
-    baseline: 'C',
-    change: '-5%',
-    trend: 'DOWN',
-    colourCode: 'YELLOW'
+    header: 'Population Health',
+    rows: [{
+      indicator: 'Safety',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }, {
+      indicator: 'Prevention',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }]
   }, {
-    indicator: 'Climate',
-    goal: '--',
-    baseline: '--',
-    change: '--',
-    trend: 'NONE',
-    colourCode: 'GREEN'
+    header: 'Per Capita Cost',
+    rows: [{
+      indicator: 'Population-level Cost/Resource Use',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }]
   }, {
-    indicator: 'Life Expectancy',
-    goal: '100%',
-    baseline: 'B',
-    change: '-5%',
-    trend: 'DOWN',
-    colourCode: 'RED'
+    header: '',
+    rows: [{
+      indicator: '',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }, {
+      indicator: '',
+      goal: '',
+      baseline: '',
+      change: '',
+      trend: '',
+      colourCode: ''
+    }]
   }]
 }];
