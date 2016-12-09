@@ -5,7 +5,7 @@ require('../../../models/page');
 
 exports.Page = [{
   key: 'community-pattern-demo-page',
-  title: 'Your Community Pattern',
+  title: 'Group Outcomes and Equity',
   pieCharts: [{
     key: 'community-pattern-pie-chart-1',
     data: [{
@@ -137,8 +137,8 @@ exports.Page = [{
       trend: 'DOWN'
     }]
   }, {
-    key: 'caregiver-burden-subgroup-1',
-    title: 'Caregiver Burden',
+    key: 'social-connection-subgroup-1',
+    title: 'Social Connection',
     list: [{
       key: 'community',
       title: 'Community',
@@ -194,8 +194,8 @@ exports.Page = [{
       trend: 'DOWN'
     }]
   }, {
-    key: 'caregiver-burden-subgroup-2',
-    title: 'Caregiver Burden',
+    key: 'social-connection-subgroup-2',
+    title: 'Social Connection',
     list: [{
       key: 'community',
       title: 'Community',
