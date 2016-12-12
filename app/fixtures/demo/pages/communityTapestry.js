@@ -96,7 +96,11 @@ exports.Page = [{
       }
     }, {
       x: 'Informal Care - Friends',
-      y: 60
+      y: 60,
+      details: {
+        key: 'pie-chart-details-key',
+        data: []
+      }
     }, {
       x: 'Informal Care - Neighbours',
       y: 80,
@@ -112,7 +116,11 @@ exports.Page = [{
       }
     }, {
       x: 'Self Care - Self (Unaided)',
-      y: 30
+      y: 30,
+      details: {
+        key: 'pie-chart-details-key',
+        data: []
+      }
     }, {
       x: 'Self Care - Monitored',
       y: 30,

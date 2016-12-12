@@ -57,11 +57,11 @@ exports.Page = [{
     list: [{
       key: 'quality-of-life',
       title: 'Quality of Life',
-      score: 'N/A'
+      score: 'NA'
     }, {
       key: 'social-connection',
       title: 'Social Connection',
-      score: 'N/A'
+      score: 'NA'
     }]
   }]
 }];

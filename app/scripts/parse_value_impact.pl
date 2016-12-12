@@ -7,7 +7,7 @@ use Text::CSV;
 
 my $filename = "import_data.csv";
 my $output_dir = "output";
-my $output_filename = "/communityPattern.js";
+my $output_filename = "/valueImpact.js";
 my @rows; # input document rows
 
 my $csv = Text::CSV->new ({binary=>1})
@@ -42,7 +42,7 @@ while (my $row_r = $csv->getline($fh)){
   my @row = @{$row_r};
   my $page = $row[0];
 
-  next if ($page ne "community-pattern-page");
+  next if ($page ne "value-impact-page");
 
   if ($output eq "") { # new page data
     $output = $output . processPageStart(\@row);
@@ -50,10 +50,6 @@ while (my $row_r = $csv->getline($fh)){
   if ($row[2] eq "pieCharts") {
     my $pieChartJSON = processPieChart(\@row,\@lastrow);
     $output = $output . $pieChartJSON;
-  }
-  if ($row[2] eq "pieChartDetail") {
-    my $pieChartDetailJSON = processPieChartDetail(\@row,\@lastrow);
-    $output = $output . $pieChartDetailJSON;
   }
   if ($row[2] eq "scoreCards"){
     my $scorecardJSON = processScoreCard(\@row,\@lastrow);
@@ -124,8 +120,6 @@ END_OUTPUT
   } else { # close off pie chart and start a new one
 
     $piechart_output = $piechart_output . <<"END_OUTPUT";
-        }]
-      }
     }, {
 END_OUTPUT
 
@@ -133,47 +127,10 @@ END_OUTPUT
 
   $piechart_output = $piechart_output .  <<"END_OUTPUT";
       x: '$row[6]',
-      y: $row[7],
+      y: $row[7]
 END_OUTPUT
 
   return $piechart_output;
-}
-
-sub processPieChartDetail {
-  my @row= @{$_[0]};
-  my @lastrow = @{$_[1]};
-  my $piechartdetail_output;
-
-  if ($lastrow[2] eq "pieCharts") { # open detail section
-
-    $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-      details: {
-        key: '$row[5]',
-        data: [{
-END_OUTPUT
-
-  } else {
-
-    if ($lastrow[6] ne $row[6]) { # close off detail entry and open next one
-
-    $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-        }, {
-END_OUTPUT
-
-    }
-  }
-
-  if ($lastrow[6] ne $row[6]) { # opening of detailed data
-
-    $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
-          indicator: '$row[6]',
-END_OUTPUT
-
-    $piechartdetail_output = $piechartdetail_output . "          values: ['$row[7]', ";
-
-  } else { # closing of detailed datta
-    $piechartdetail_output = $piechartdetail_output . "'$row[7]']\n";
-  }
 }
 
 sub processScoreCard {
@@ -184,8 +141,6 @@ sub processScoreCard {
     if ($lastrow[2] ne "scoreCards") { # add preamble for scorecards
 
       $scorecard_output = <<"END_OUTPUT";
-        }]
-      }
     }]
   }],
   scoreCards: [{

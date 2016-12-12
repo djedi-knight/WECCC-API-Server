@@ -15,6 +15,7 @@ my $csv = Text::CSV->new ({binary=>1})
 
 open my $fh, "<:encoding(utf8)", "$filename" or die "$filename: $!";
 
+# Initialize variables
 
 my @lastrow;
 my $output = "";
@@ -30,6 +31,7 @@ $output = $output . processPageStart(\@keyRow,\@titleRow);
 
 # Table section
 $firstrow = $csv->getline($fh); # actual header row
+
 # Data structure
 #
 # Index Data
@@ -76,11 +78,13 @@ sub processPageStart {
   my $page_output = <<"END_OUTPUT";
 /* global exports  */
 /* global require  */
+
 require('../../../models/report');
-exports.Page = [{
+
+exports.ProgressReport = [{
   key: '$keyRow[1]',
   title: '$titleRow[1]',
-  data:[{
+  data: [{
 END_OUTPUT
 
   return $page_output;
@@ -104,13 +108,13 @@ sub processProgressTracker {
   if ($lastrow[0] ne $row[0]) { # add header for report section
     if ($lastrow[0] ne ""){ # not first row
       $progress_output = $progress_output . <<"END_OUTPUT";
-      }]
-      },{
+    }]
+  }, {
 END_OUTPUT
     }
     $progress_output = $progress_output . <<"END_OUTPUT";
     header: '$row[0]',
-    rows:[{
+    rows: [{
 END_OUTPUT
   }else{
 
@@ -121,12 +125,12 @@ END_OUTPUT
 
 
   $progress_output = $progress_output . <<"END_OUTPUT";
-    indicator: '$row[1]',
-    goal: '$row[2]',
-    baseline: '$row[3]',
-    change: '$row[4]',
-    trend: '$row[5]',
-    colourCode: '$row[6]'
+      indicator: '$row[1]',
+      goal: '$row[2]',
+      baseline: '$row[3]',
+      change: '$row[4]',
+      trend: '$row[5]',
+      colourCode: '$row[6]'
 END_OUTPUT
 
 return $progress_output;

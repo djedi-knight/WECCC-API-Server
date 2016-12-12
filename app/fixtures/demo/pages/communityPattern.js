@@ -10,7 +10,7 @@ exports.Page = [{
     key: 'community-pattern-pie-chart-1',
     data: [{
       x: 'Self-Help',
-      y: '50',
+      y: 50,
       details: {
         key: 'self-help-details-report',
         data: [{
@@ -23,7 +23,7 @@ exports.Page = [{
       }
     }, {
       x: 'Social Groups',
-      y: '45',
+      y: 45,
       details: {
         key: 'social-groups-details-report',
         data: [{
@@ -36,7 +36,7 @@ exports.Page = [{
       }
     }, {
       x: 'Family',
-      y: '60',
+      y: 60,
       details: {
         key: 'family-details-report',
         data: [{
@@ -49,7 +49,7 @@ exports.Page = [{
       }
     }, {
       x: 'Friends',
-      y: '25',
+      y: 25,
       details: {
         key: 'friends-details-report',
         data: [{
@@ -62,7 +62,7 @@ exports.Page = [{
       }
     }, {
       x: 'Self-Help',
-      y: '25',
+      y: 25,
       details: {
         key: 'self-help-details-report',
         data: [{
@@ -75,7 +75,7 @@ exports.Page = [{
       }
     }, {
       x: 'Social Groups',
-      y: '10',
+      y: 10,
       details: {
         key: 'social-groups-details-report',
         data: [{
@@ -88,7 +88,7 @@ exports.Page = [{
       }
     }, {
       x: 'Family',
-      y: '10',
+      y: 10,
       details: {
         key: 'family-details-report',
         data: [{
@@ -101,7 +101,7 @@ exports.Page = [{
       }
     }, {
       x: 'Friends',
-      y: '60',
+      y: 60,
       details: {
         key: 'friends-details-report',
         data: [{

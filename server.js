@@ -13,7 +13,6 @@ var logger      = require('morgan');
 var mongoose    = require('mongoose');
 var mongodbUri  = require('mongodb-uri');
 var fixtures    = require('pow-mongoose-fixtures');
-// var minimist    = require('minimist');
 
 var config      = require('./config.json');
 
@@ -21,9 +20,6 @@ var index       = require('./app/routes/index');
 var scoreCards  = require('./app/routes/scoreCards');
 var pages       = require('./app/routes/pages');
 var reports     = require('./app/routes/reports');
-
-// get arguments
-// var args = minimist(process.argv.slice(2));
 
 // Use native Node promises for Mongoose
 mongoose.Promise = global.Promise;

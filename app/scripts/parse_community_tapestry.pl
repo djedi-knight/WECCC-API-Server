@@ -55,7 +55,6 @@ while (my $row_r = $csv->getline($fh)){
     my $pieChartDetailJSON = processPieChartDetail(\@row,\@lastrow);
     $output = $output . $pieChartDetailJSON;
   }
-
   if ($row[2] eq "scoreCards"){
     my $scorecardJSON = processScoreCard(\@row,\@lastrow);
     $output = $output . $scorecardJSON;
@@ -101,6 +100,8 @@ END_OUTPUT
 
 sub processPageEnd {
   my $page_output = <<"END_OUTPUT";
+        }]
+      }
     }]
   }]
 }];
@@ -122,14 +123,27 @@ sub processPieChart {
     data: [{
 END_OUTPUT
 
-  } else { # close off pie chart and start a new one
+  } else { # close off pie chart section and start a new one
 
-    $piechart_output = $piechart_output . <<"END_OUTPUT";
+    if ($lastrow[2] ne "pieCharts") {
+
+      $piechart_output = $piechart_output . <<"END_OUTPUT";
         }]
       }
     }, {
 END_OUTPUT
 
+    } else {
+
+      $piechart_output = $piechart_output . <<"END_OUTPUT";
+      details: {
+        key: 'pie-chart-details-key',
+        data: []
+      }
+    }, {
+END_OUTPUT
+
+    }
   }
 
   $piechart_output = $piechart_output .  <<"END_OUTPUT";
@@ -145,7 +159,7 @@ sub processPieChartDetail {
   my @lastrow = @{$_[1]};
   my $piechartdetail_output;
 
-  if ($lastrow[2] eq "pieCharts"){ # open detail section
+  if ($lastrow[2] eq "pieCharts") { # open detail section
 
     $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
       details: {
@@ -153,9 +167,9 @@ sub processPieChartDetail {
         data: [{
 END_OUTPUT
 
-  }else{
+  } else {
 
-    if ($lastrow[6] ne $row[6]){ # close off detail entry and open next one
+    if ($lastrow[6] ne $row[6]) { # close off detail entry and open next one
 
     $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
         }, {
@@ -163,67 +177,10 @@ END_OUTPUT
 
     }
   }
-  if ($lastrow[6] ne $row[6]){ # opening of detailed data
 
-    $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
+  $piechartdetail_output = $piechartdetail_output . <<"END_OUTPUT";
           indicator: '$row[6]',
-END_OUTPUT
-
-    $piechartdetail_output = $piechartdetail_output . "          values: ['$row[7]',";
-
-  } else { # closing of detailed datta
-    $piechartdetail_output = $piechartdetail_output . "'$row[7]']\n";
-  }
-}
-
-sub processScoreCard {
-    my @row= @{$_[0]};
-    my @lastrow = @{$_[1]};
-    my $scorecard_output;
-
-    if ($lastrow[2] ne "scoreCards"){ # add preamble for scorecards
-
-      $scorecard_output = <<"END_OUTPUT";
-        }]
-      }
-    }]
-  }],
-  scoreCards: [{
-END_OUTPUT
-
-    } else {
-      if ($lastrow[3] eq $row[3]) { # add comma unless we are closing off a list
-
-        $scorecard_output = $scorecard_output . <<"END_OUTPUT";
-    }, {
-END_OUTPUT
-
-      }
-    }
-
-    if ($lastrow[3] ne $row[3]){
-      if ($lastrow[2] eq "scoreCards"){ # close off previous list if not first set scorebox
-
-        $scorecard_output = $scorecard_output . <<"END_OUTPUT";
-    }]
-  }, {
-END_OUTPUT
-
-      }
-
-      $scorecard_output = $scorecard_output . <<"END_OUTPUT";
-    key: '$row[3]',
-    title: '$row[4]',
-    list: [{
-END_OUTPUT
-
-    }
-
-    $scorecard_output = $scorecard_output . <<"END_OUTPUT";
-      key: '$row[5]',
-      title: '$row[6]',
-      score: '$row[7]',
-      trend: '$row[8]'
+          values: ['$row[7]']
 END_OUTPUT
 
 }
