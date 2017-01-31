@@ -36,6 +36,7 @@ my $firstRow = $csv->getline($fh);
 
 my @lastrow;
 my $output = "";
+my $current_piechart;
 
 while (my $row_r = $csv->getline($fh)){
 
@@ -48,7 +49,7 @@ while (my $row_r = $csv->getline($fh)){
     $output = $output . processPageStart(\@row);
   }
   if ($row[2] eq "pieCharts") {
-    my $pieChartJSON = processPieChart(\@row,\@lastrow);
+    my $pieChartJSON = processPieChart(\@row,\@lastrow,$current_piechart);
     $output = $output . $pieChartJSON;
   }
   if ($row[2] eq "scoreCards"){
@@ -107,9 +108,12 @@ END_OUTPUT
 sub processPieChart {
   my @row= @{$_[0]};
   my @lastrow = @{$_[1]};
+  my $current_piechart = $_[2];
   my $piechart_output;
 
   if ($lastrow[2] ne "pieCharts" && $lastrow[2] ne "pieChartDetail") {  # add preamble for the first pie chart
+    # set current piechart value for future reference
+    $_[2] = $row[3];
 
     $piechart_output = <<"END_OUTPUT";
   pieCharts: [{
@@ -117,12 +121,24 @@ sub processPieChart {
     data: [{
 END_OUTPUT
 
-  } else { # close off pie chart and start a new one
+  } else { # close off pie slice and start a new one
+    if ($row[3] ne $current_piechart) {
+      # set current piechart value for future reference
+      $_[2] = $row[3];
 
-    $piechart_output = $piechart_output . <<"END_OUTPUT";
+      $piechart_output = $piechart_output . <<"END_OUTPUT";
+    }]
+  }, {
+    key: '$row[3]',
+    data: [{
+END_OUTPUT
+
+    } else {
+      $piechart_output = $piechart_output . <<"END_OUTPUT";
     }, {
 END_OUTPUT
 
+    }
   }
 
   $piechart_output = $piechart_output .  <<"END_OUTPUT";
